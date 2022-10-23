@@ -25,7 +25,30 @@ let countryList = {
   Malaysia : 'Kuala Lumpur',
   Maldives : 'Male',
   Mongolia : 'Ulaanbaatar',
-  Myanmar : 'Naypyidaw'
+  Myanmar : 'Naypyidaw',
+  Nepal : 'Kathmandu',
+  'North Korea' : 'Pyongyang',
+  Oman : 'Muscat',
+  Pakistan : 'Islamabad',
+  Palestine : 'Jerusalem',
+  Philippines : 'Manila',
+  Qatar : 'Doha',
+  Russia : 'Moscow',
+  'Saudi Arabia' : 'Riyadh',
+  Singapore : 'Singapore',
+  'South Korea' : 'Seoul',
+  'Sri Lanka' : 'Sri Jayawardenepura Kotte',
+  Syria : 'Damascus',
+  Taiwan : 'Taipei',
+  Tajikistan : 'Dushanbe',
+  Thailand : 'Bangkok',
+  'Timor-Leste' : 'Dili',
+  Turkey : 'Ankara',
+  Turkmenistan : 'Ashgabat',
+  'United Arab Emirates' : 'Abu Dhabi',
+  Uzbekistan : 'Tashkent',
+  Vietnam : 'Hanoi',
+  Yemen : "Sana'a"
 };
 
 //create random numbers between 0 and number of country key indexes
