@@ -107,7 +107,9 @@ function removeElements() {
   });
 }
 
+//function to run the game
 function runGame(number) {
+  document.getElementById('answer').focus();
   ansInput.value ='';
   generateCountry (number);
 }
@@ -118,6 +120,8 @@ function checkAns (event) {
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(countryList).includes(ansInput.value))) {
     alert('Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.');
+    ansInput.value ='';
+    document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1]) {
     alert('Well done. Correct.')
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
@@ -133,6 +137,5 @@ function checkAns (event) {
 
 //function to randomly generate a country
 function generateCountry (num) { 
-  document.getElementById('answer').focus();
   countryQ.innerHTML= Object.keys(countryList)[num];
 };
