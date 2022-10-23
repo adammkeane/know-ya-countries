@@ -51,9 +51,9 @@ let countryList = {
   Yemen : "Sana'a"
 };
 
-//create random numbers between 0 and number of country key indexes
-let num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
 
+//create random numbers between 0 and number of country key indexes
+let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
 
 document.addEventListener("DOMContentLoaded", function() {
   //check users answer
@@ -75,9 +75,12 @@ removeElements();
 //loop through above array
 for (let i in countryList) {
   //convert input to lowercase and compare with each string
-  if (
+  if (i === 'Palestine') {
+    continue;
+  }
+  else if (
     countryList[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
-    ansInput.value != ""
+    ansInput.value !== ""
   ) {
     //create li element
     let listItem = document.createElement("li");
@@ -122,13 +125,13 @@ function checkAns (event) {
     alert('Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.');
     ansInput.value ='';
     document.getElementById('answer').focus();
-  } else if (ansInput.value === Object.values(countryList)[num1]) {
+  } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     alert('Well done. Correct.')
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
+    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     runGame(num1);
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     alert(`Unlucky. The correct answer was ${Object.values(countryList)[num1]}`)
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
+    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     runGame(num1);
   }
 };
