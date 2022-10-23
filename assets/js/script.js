@@ -28,6 +28,10 @@
     Myanmar : 'Naypyidaw'
  };
 
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+   generateCountry();
+});
 
 
 
@@ -35,6 +39,7 @@
  // reference
  let ansInput = document.getElementById('answer');
  let ansSubmit = document.getElementById('submit-button');
+ let countryQ = document.getElementById('country');
 
 
 
@@ -89,4 +94,11 @@
  ansSubmit.addEventListener('click', checkAns);
 
  //randomly generate a country
- 
+ function generateCountry () {
+   document.getElementById('answer').focus();
+
+    //create random numbers between 0 and number of countries
+    let num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
+   
+   
+};
