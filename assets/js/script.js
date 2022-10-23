@@ -28,20 +28,16 @@
     Myanmar : 'Naypyidaw'
  };
 
- 
  document.addEventListener("DOMContentLoaded", function() {
    generateCountry();
 });
-
-
-
 
  // reference
  let ansInput = document.getElementById('answer');
  let ansSubmit = document.getElementById('submit-button');
  let countryQ = document.getElementById('country');
-
-
+   //create random numbers between 0 and number of country key indexes
+   let num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
 
  ansInput.addEventListener('keyup', (e) => {
    //loop through above array
@@ -80,25 +76,22 @@
      item.remove();
    });
  }
-
  
- //only allow real capital cities from the object as options
+ //functio to check users answers
  function checkAns (event) {
    event.preventDefault();
+   //only allow real capital cities from the object as options and check if answer correct.
    if (!(Object.values(countryList).includes(ansInput.value))) {
-       alert('Not a valid option');
-   }
+       alert('Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.');
+   } 
  };
 
  //check users answer
  ansSubmit.addEventListener('click', checkAns);
 
- //randomly generate a country
- function generateCountry () {
-   document.getElementById('answer').focus();
+ //function to randomly generate a country
+ function generateCountry () { 
+  document.getElementById('answer').focus();
 
-    //create random numbers between 0 and number of countries
-    let num1 = Math.floor(Math.random() * (Object.keys(countryList).length - 1));
-   
-   
+  countryQ.innerHTML= Object.keys(countryList)[num1];
 };
