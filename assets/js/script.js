@@ -51,7 +51,6 @@ let countryList = {
   Yemen : "Sana'a"
 };
 
-
 //create random numbers between 0 and number of country key indexes
 let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
 
@@ -80,20 +79,20 @@ for (let i in countryList) {
   }
   else if (
     countryList[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
-    ansInput.value !== ""
+    ansInput.value !== ''
   ) {
     //create li element
-    let listItem = document.createElement("li");
+    let listItem = document.createElement('li');
     //One common class name
-    listItem.classList.add("options-list-items");
-    listItem.style.cursor = "pointer";
-    listItem.setAttribute("onclick", "displayNames('" + countryList[i] + "')");
+    listItem.classList.add('options-list-items');
+    listItem.style.cursor = 'pointer';
+    listItem.setAttribute('onclick', 'displayNames("' + countryList[i] + '"), ansInput.focus()');
     //Display matched part in bold
-    let word = "<b>" + countryList[i].substr(0, ansInput.value.length) + "</b>";
+    let word = '<b>' + countryList[i].substr(0, ansInput.value.length) + '</b>';
     word += countryList[i].substr(ansInput.value.length);
     //display the value in array
     listItem.innerHTML = word;
-    document.querySelector(".options-list").appendChild(listItem);
+    document.querySelector('.options-list').appendChild(listItem);
   }
 }
 });
@@ -104,7 +103,7 @@ function displayNames(value) {
 }
 function removeElements() {
   //clear all the item
-  let items = document.querySelectorAll(".options-list-items");
+  let items = document.querySelectorAll('.options-list-items');
   items.forEach((item) => {
   item.remove();
   });
@@ -112,7 +111,7 @@ function removeElements() {
 
 //function to run the game
 function runGame(number) {
-  document.getElementById('answer').focus();
+  ansInput.focus();
   ansInput.value ='';
   generateCountry (number);
 }
