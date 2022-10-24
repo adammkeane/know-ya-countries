@@ -57,6 +57,7 @@ let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
 document.addEventListener("DOMContentLoaded", function() {
   //check users answer
   ansSubmit.addEventListener('click', checkAns);
+  nextButton.addEventListener('click', next);
   runGame(num1);
 });
 
@@ -65,7 +66,7 @@ let ansInput = document.getElementById('answer');
 let ansSubmit = document.getElementById('submit-button');
 let countryQ = document.getElementById('country');
 let ansFeedback = document.getElementById('ans-feedback');
-
+let nextButton = document.getElementById('next-button');
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
@@ -117,6 +118,7 @@ function runGame(number) {
 
 //function to check users answers
 function checkAns (event) {
+  //remove default submit button functionality
   event.preventDefault();
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(countryList).includes(ansInput.value))) {
@@ -125,16 +127,21 @@ function checkAns (event) {
     document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.innerHTML = 'Well done. Correct.'
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-    runGame(num1);
+    nextButton.focus();
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-    runGame(num1);
+    nextButton.focus();
   }
 };
 
-
+//function for next button
+function next (event) {
+  //remove default submit button functionality
+  event.preventDefault();
+  num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+  runGame(num1);
+  ansFeedback.innerHTML ='';
+};
 
 //function to randomly generate a country
 function generateCountry (num) { 
