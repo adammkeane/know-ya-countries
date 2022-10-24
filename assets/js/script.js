@@ -3,52 +3,52 @@ let countryList = {
   Armenia : 'Yerevan',
   Azerbaijan : 'Baku',
   Bahrain : 'Manama',
-  // Bangladesh : 'Dhaka',
-  // Bhutan : 'Thimphu',
-  // Brunei : 'Bandar Seri Begawan',
-  // Cambodia : 'Phnom Penh',
-  // China : 'Beijing',
-  // Cyprus : 'Nicosia',
-  // Georgia : 'Tbilisi',
-  // India : 'New Dehli',
-  // Indonesia : 'Jakarta',
-  // Iran : 'Tehran',
-  // Iraq : 'Baghdad',
-  // Israel : 'Jerusalem',
-  // Japan : 'Toyko',
-  // Jordan : 'Amman',
-  // Kazakhstan : 'Astana',
-  // Kuwait : 'Kuwait City',
-  // Kyrgyzstan : 'Bishkek',
-  // Laos : 'Vietiane',
-  // Lebanon : 'Beirut',
-  // Malaysia : 'Kuala Lumpur',
-  // Maldives : 'Male',
-  // Mongolia : 'Ulaanbaatar',
-  // Myanmar : 'Naypyidaw',
-  // Nepal : 'Kathmandu',
-  // 'North Korea' : 'Pyongyang',
-  // Oman : 'Muscat',
-  // Pakistan : 'Islamabad',
-  // Palestine : 'Jerusalem',
-  // Philippines : 'Manila',
-  // Qatar : 'Doha',
-  // Russia : 'Moscow',
-  // 'Saudi Arabia' : 'Riyadh',
-  // Singapore : 'Singapore',
-  // 'South Korea' : 'Seoul',
-  // 'Sri Lanka' : 'Sri Jayawardenepura Kotte',
-  // Syria : 'Damascus',
-  // Taiwan : 'Taipei',
-  // Tajikistan : 'Dushanbe',
-  // Thailand : 'Bangkok',
-  // 'Timor-Leste' : 'Dili',
-  // Turkey : 'Ankara',
-  // Turkmenistan : 'Ashgabat',
-  // 'United Arab Emirates' : 'Abu Dhabi',
-  // Uzbekistan : 'Tashkent',
-  // Vietnam : 'Hanoi',
-  // Yemen : "Sana'a"
+  Bangladesh : 'Dhaka',
+  Bhutan : 'Thimphu',
+  Brunei : 'Bandar Seri Begawan',
+  Cambodia : 'Phnom Penh',
+  China : 'Beijing',
+  Cyprus : 'Nicosia',
+  Georgia : 'Tbilisi',
+  India : 'New Dehli',
+  Indonesia : 'Jakarta',
+  Iran : 'Tehran',
+  Iraq : 'Baghdad',
+  Israel : 'Jerusalem',
+  Japan : 'Toyko',
+  Jordan : 'Amman',
+  Kazakhstan : 'Astana',
+  Kuwait : 'Kuwait City',
+  Kyrgyzstan : 'Bishkek',
+  Laos : 'Vietiane',
+  Lebanon : 'Beirut',
+  Malaysia : 'Kuala Lumpur',
+  Maldives : 'Male',
+  Mongolia : 'Ulaanbaatar',
+  Myanmar : 'Naypyidaw',
+  Nepal : 'Kathmandu',
+  'North Korea' : 'Pyongyang',
+  Oman : 'Muscat',
+  Pakistan : 'Islamabad',
+  Palestine : 'Jerusalem',
+  Philippines : 'Manila',
+  Qatar : 'Doha',
+  Russia : 'Moscow',
+  'Saudi Arabia' : 'Riyadh',
+  Singapore : 'Singapore',
+  'South Korea' : 'Seoul',
+  'Sri Lanka' : 'Sri Jayawardenepura Kotte',
+  Syria : 'Damascus',
+  Taiwan : 'Taipei',
+  Tajikistan : 'Dushanbe',
+  Thailand : 'Bangkok',
+  'Timor-Leste' : 'Dili',
+  Turkey : 'Ankara',
+  Turkmenistan : 'Ashgabat',
+  'United Arab Emirates' : 'Abu Dhabi',
+  Uzbekistan : 'Tashkent',
+  Vietnam : 'Hanoi',
+  Yemen : "Sana'a"
 };
 
 //create random numbers between 0 and number of country key indexes
@@ -140,12 +140,22 @@ function checkAns (event) {
 function next (event) {
   //remove default submit button functionality
   event.preventDefault();
-  num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-  runGame(num1);
-  ansFeedback.innerHTML ='';
+    
+  if (Object.keys(countryList).length === 1) {
+    ansFeedback.innerHTML = 'All done. No more countries';
+  } else {
+    delete countryList[Object.keys(countryList)[num1]];
+    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+    runGame(num1);
+    ansFeedback.innerHTML ='';
+  };
 };
 
 //function to randomly generate a country
 function generateCountry (num) { 
-  countryQ.innerHTML= Object.keys(countryList)[num];
+  if (Object.keys(countryList).length === 1){
+
+  } else {
+    countryQ.innerHTML= Object.keys(countryList)[num];
+  };
 };
