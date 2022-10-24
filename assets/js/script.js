@@ -64,8 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let ansInput = document.getElementById('answer');
 let ansSubmit = document.getElementById('submit-button');
 let countryQ = document.getElementById('country');
-
-
+let ansFeedback = document.getElementById('ans-feedback');
 
 
 ansInput.addEventListener('keyup', (e) => {
@@ -121,15 +120,15 @@ function checkAns (event) {
   event.preventDefault();
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(countryList).includes(ansInput.value))) {
-    alert('Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.');
+    ansFeedback.innerHTML = 'Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.';
     ansInput.value ='';
     document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
-    alert('Well done. Correct.')
+    ansFeedback.innerHTML = 'Well done. Correct.'
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     runGame(num1);
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
-    alert(`Unlucky. The correct answer was ${Object.values(countryList)[num1]}`)
+    ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     runGame(num1);
   }
