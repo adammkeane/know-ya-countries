@@ -51,7 +51,7 @@ let countryList = {
   'Yemen' : "Sana'a"
 };
 
-let capitalArray = Object.values(countryList);
+let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
 
@@ -80,10 +80,7 @@ removeElements();
 //loop through above array
 for (let i in capitalArray) {
   //convert input to lowercase and compare with each string
-  if (i === 'Palestine') {
-    continue;
-  }
-  else if (
+   if (
     capitalArray[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
     ansInput.value !== ''
   ) {
@@ -180,6 +177,7 @@ function generateCountry (num) {
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
     nextButton.setAttribute('disabled', 'true');
+    ansInput.setAttribute('placeholder', 'All done:)')
   } else {
     countryQ.innerHTML= Object.keys(countryList)[num];
   }  
