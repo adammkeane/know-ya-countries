@@ -1,55 +1,57 @@
 let countryList = {
-  Afghanistan : 'Kabul',
-  Armenia : 'Yerevan',
-  Azerbaijan : 'Baku',
-  Bahrain : 'Manama',
-  Bangladesh : 'Dhaka',
-  Bhutan : 'Thimphu',
-  Brunei : 'Bandar Seri Begawan',
-  Cambodia : 'Phnom Penh',
-  China : 'Beijing',
-  Cyprus : 'Nicosia',
-  Georgia : 'Tbilisi',
-  India : 'New Dehli',
-  Indonesia : 'Jakarta',
-  Iran : 'Tehran',
-  Iraq : 'Baghdad',
-  Israel : 'Jerusalem',
-  Japan : 'Toyko',
-  Jordan : 'Amman',
-  Kazakhstan : 'Astana',
-  Kuwait : 'Kuwait City',
-  Kyrgyzstan : 'Bishkek',
-  Laos : 'Vietiane',
-  Lebanon : 'Beirut',
-  Malaysia : 'Kuala Lumpur',
-  Maldives : 'Male',
-  Mongolia : 'Ulaanbaatar',
-  Myanmar : 'Naypyidaw',
-  Nepal : 'Kathmandu',
+  'Afghanistan' : 'Kabul',
+  'Armenia' : 'Yerevan',
+  'Azerbaijan' : 'Baku',
+  'Bahrain' : 'Manama',
+  'Bangladesh' : 'Dhaka',
+  'Bhutan' : 'Thimphu',
+  'Brunei' : 'Bandar Seri Begawan',
+  'Cambodia' : 'Phnom Penh',
+  'China' : 'Beijing',
+  'Cyprus' : 'Nicosia',
+  'Georgia' : 'Tbilisi',
+  'India' : 'New Dehli',
+  'Indonesia' : 'Jakarta',
+  'Iran' : 'Tehran',
+  'Iraq' : 'Baghdad',
+  'Israel' : 'Jerusalem',
+  'Japan' : 'Toyko',
+  'Jordan' : 'Amman',
+  'Kazakhstan' : 'Astana',
+  'Kuwait' : 'Kuwait City',
+  'Kyrgyzstan' : 'Bishkek',
+  'Laos' : 'Vietiane',
+  'Lebanon' : 'Beirut',
+  'Malaysia' : 'Kuala Lumpur',
+  'Maldives' : 'Male',
+  'Mongolia' : 'Ulaanbaatar',
+  'Myanmar' : 'Naypyidaw',
+  'Nepal' : 'Kathmandu',
   'North Korea' : 'Pyongyang',
-  Oman : 'Muscat',
-  Pakistan : 'Islamabad',
-  Palestine : 'Jerusalem',
-  Philippines : 'Manila',
-  Qatar : 'Doha',
-  Russia : 'Moscow',
+  'Oman' : 'Muscat',
+  'Pakistan' : 'Islamabad',
+  'Palestine' : 'Jerusalem',
+  'Philippines' : 'Manila',
+  'Qatar' : 'Doha',
+  'Russia' : 'Moscow',
   'Saudi Arabia' : 'Riyadh',
-  Singapore : 'Singapore',
+  'Singapore' : 'Singapore',
   'South Korea' : 'Seoul',
   'Sri Lanka' : 'Sri Jayawardenepura Kotte',
-  Syria : 'Damascus',
-  Taiwan : 'Taipei',
-  Tajikistan : 'Dushanbe',
-  Thailand : 'Bangkok',
+  'Syria' : 'Damascus',
+  'Taiwan' : 'Taipei',
+  'Tajikistan' : 'Dushanbe',
+  'Thailand' : 'Bangkok',
   'Timor-Leste' : 'Dili',
-  Turkey : 'Ankara',
-  Turkmenistan : 'Ashgabat',
+  'Turkey' : 'Ankara',
+  'Turkmenistan' : 'Ashgabat',
   'United Arab Emirates' : 'Abu Dhabi',
-  Uzbekistan : 'Tashkent',
-  Vietnam : 'Hanoi',
-  Yemen : "Sana'a"
+  'Uzbekistan' : 'Tashkent',
+  'Vietnam' : 'Hanoi',
+  'Yemen' : "Sana'a"
 };
+
+let capitalArray = Object.values(countryList);
 
 //create random numbers between 0 and number of country key indexes
 let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
@@ -72,13 +74,13 @@ ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
 removeElements();
 //loop through above array
-for (let i in countryList) {
+for (let i in capitalArray) {
   //convert input to lowercase and compare with each string
   if (i === 'Palestine') {
     continue;
   }
   else if (
-    countryList[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
+    capitalArray[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
     ansInput.value !== ''
   ) {
     //create li element
@@ -86,10 +88,10 @@ for (let i in countryList) {
     //One common class name
     listItem.classList.add('options-list-items');
     listItem.style.cursor = 'pointer';
-    listItem.setAttribute('onclick', 'displayNames("' + countryList[i] + '"), ansInput.focus()');
+    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
     //Display matched part in bold
-    let word = '<b>' + countryList[i].substr(0, ansInput.value.length) + '</b>';
-    word += countryList[i].substr(ansInput.value.length);
+    let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
+    word += capitalArray[i].substr(ansInput.value.length);
     //display the value in array
     listItem.innerHTML = word;
     document.querySelector('.options-list').appendChild(listItem);
@@ -128,10 +130,14 @@ function checkAns (event) {
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.innerHTML = 'Well done. Correct.'
     nextButton.focus();
+    ansSubmit.setAttribute('disabled', 'true');
+    ansInput.setAttribute('disabled', 'true');
     delete countryList[Object.keys(countryList)[num1]];
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
     nextButton.focus();
+    ansSubmit.setAttribute('disabled', 'true');
+    ansInput.setAttribute('disabled', 'true');
     delete countryList[Object.keys(countryList)[num1]];
   }
 };
@@ -140,7 +146,10 @@ function checkAns (event) {
 function next (event) {
   //remove default submit button functionality
   event.preventDefault();
-    
+  removeElements();
+  ansSubmit.removeAttribute('disabled');
+  ansInput.removeAttribute('disabled');
+
   if (Object.keys(countryList).length === 1) {
     ansFeedback.innerHTML = 'All done. No more countries';
   } else {
@@ -159,3 +168,6 @@ function generateCountry (num) {
     countryQ.innerHTML= Object.keys(countryList)[num];
   };
 };
+
+
+
