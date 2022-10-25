@@ -52,6 +52,8 @@ let countryList = {
 };
 
 let capitalArray = Object.values(countryList);
+let questionNumber = 0;
+let score = 0;
 
 //create random numbers between 0 and number of country key indexes
 let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
@@ -64,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // reference
-let ansInput = document.getElementById('answer');
-let ansSubmit = document.getElementById('submit-button');
-let countryQ = document.getElementById('country');
-let ansFeedback = document.getElementById('ans-feedback');
-let nextButton = document.getElementById('next-button');
+const ansInput = document.getElementById('answer');
+const ansSubmit = document.getElementById('submit-button');
+const countryQ = document.getElementById('country');
+const ansFeedback = document.getElementById('ans-feedback');
+const nextButton = document.getElementById('next-button');
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
