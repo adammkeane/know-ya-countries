@@ -139,16 +139,12 @@ function checkAns (event) {
 
     score ++;
     scoreCounter.innerHTML = `Score: ${score}`
-
-    delete countryList[Object.keys(countryList)[num1]];
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
     nextButton.focus();
 
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
-
-    delete countryList[Object.keys(countryList)[num1]];
   }
 };
 
@@ -162,8 +158,11 @@ function next (event) {
 
   if (Object.keys(countryList).length === 0) {
     ansFeedback.innerHTML = 'All done. No more countries';
-    ansSubmit.setAttribute('disabled', 'true');
-    ansInput.setAttribute('disabled', 'true');
+  } else if (Object.keys(countryList).length === 1) {
+    delete countryList[Object.keys(countryList)[num1]];
+    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+    runGame(num1);
+    ansFeedback.innerHTML ='';
   } else {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
@@ -171,7 +170,7 @@ function next (event) {
     questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
     runGame(num1);
     ansFeedback.innerHTML ='';
-  };
+  };;
 };
 
 //function to randomly generate a country
