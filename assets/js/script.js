@@ -52,7 +52,7 @@ let countryList = {
 };
 
 let capitalArray = Object.values(countryList);
-let questionNumber = 0;
+let questionNumber = 1;
 let score = 0;
 
 //create random numbers between 0 and number of country key indexes
@@ -72,6 +72,7 @@ const countryQ = document.getElementById('country');
 const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
+const questionsLeft = document.getElementById('questions-left');
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
@@ -126,7 +127,7 @@ function checkAns (event) {
   //remove default submit button functionality
   event.preventDefault();
   //only allow real capital cities from the object as options and check if answer correct.
-  if (!(Object.values(countryList).includes(ansInput.value))) {
+  if (!(Object.values(capitalArray).includes(ansInput.value))) {
     ansFeedback.innerHTML = 'Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.';
     ansInput.value ='';
     document.getElementById('answer').focus();
@@ -135,14 +136,18 @@ function checkAns (event) {
     nextButton.focus();
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
+
     score ++;
     scoreCounter.innerHTML = `Score: ${score}`
+
     delete countryList[Object.keys(countryList)[num1]];
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
     nextButton.focus();
+
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
+
     delete countryList[Object.keys(countryList)[num1]];
   }
 };
@@ -155,7 +160,10 @@ function next (event) {
   ansSubmit.removeAttribute('disabled');
   ansInput.removeAttribute('disabled');
 
-  if (Object.keys(countryList).length === 1) {
+  questionNumber++;
+  questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
+
+  if (Object.keys(countryList).length === 0) {
     ansFeedback.innerHTML = 'All done. No more countries';
   } else {
     delete countryList[Object.keys(countryList)[num1]];
@@ -167,11 +175,11 @@ function next (event) {
 
 //function to randomly generate a country
 function generateCountry (num) { 
-  if (Object.keys(countryList).length === 1){
-
+  if (Object.keys(countryList).length === 0) {
+    countryQ.innerHTML= 'Finished';
   } else {
     countryQ.innerHTML= Object.keys(countryList)[num];
-  };
+  }  
 };
 
 
