@@ -160,14 +160,15 @@ function next (event) {
   ansSubmit.removeAttribute('disabled');
   ansInput.removeAttribute('disabled');
 
-  questionNumber++;
-  questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
-
   if (Object.keys(countryList).length === 0) {
     ansFeedback.innerHTML = 'All done. No more countries';
+    ansSubmit.setAttribute('disabled', 'true');
+    ansInput.setAttribute('disabled', 'true');
   } else {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+    questionNumber++;
+    questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
     runGame(num1);
     ansFeedback.innerHTML ='';
   };
@@ -177,6 +178,9 @@ function next (event) {
 function generateCountry (num) { 
   if (Object.keys(countryList).length === 0) {
     countryQ.innerHTML= 'Finished';
+    ansSubmit.setAttribute('disabled', 'true');
+    ansInput.setAttribute('disabled', 'true');
+    nextButton.setAttribute('disabled', 'true');
   } else {
     countryQ.innerHTML= Object.keys(countryList)[num];
   }  
