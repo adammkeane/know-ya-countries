@@ -71,6 +71,7 @@ const ansSubmit = document.getElementById('submit-button');
 const countryQ = document.getElementById('country');
 const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
+const scoreCounter = document.getElementById('score');
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
@@ -134,6 +135,8 @@ function checkAns (event) {
     nextButton.focus();
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
+    score ++;
+    scoreCounter.innerHTML = `Score: ${score}`
     delete countryList[Object.keys(countryList)[num1]];
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
