@@ -13,21 +13,23 @@
     </header>
 
     <main>
-        <div>Country</div>
-        <div id="country"></div>
-        <form autocomplete="off">
-            <div class="autocomplete">
-                <label for="capital">Capital</label>
-                <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
-                <ul class="options-list"></ul>
-            </div>
-            <input type="submit" id="submit-button" value="Check Answer">
-            <input type="submit" id="next-button" value="Next">
-            
-          </form>
-          <div id="ans-feedback"></div>
-          <div id="score">Score: 0</div>
-          <div id="questions-left">Question 1 / 50</div>
+        <section class="flex-column">
+            <div class="game-box">Country</div>
+            <div id="country" class="game-box"></div>
+            <form autocomplete="off" class="flex-column">
+                <div class="autocomplete">
+                    <label for="capital" class="game-box flex-column">Capital</label>
+                    <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
+                    <ul class="options-list"></ul>
+                </div>
+                <input type="submit" id="submit-button" value="Check Answer" >
+                <input type="submit" id="next-button" value="Next">
+            </form>
+        </section>  
+          
+        <div id="ans-feedback"></div>
+        <div id="score">Score: 0</div>
+        <div id="questions-left">Question 1 / 50</div>
     </main>
 
     <footer>
