@@ -2,50 +2,46 @@
 
 /* site wide styling */
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
 }
 
-
 form {
-
-
   padding: 40px 0;
 }
 input[type="text"], .game-box {
-  
   padding: 15px 10px;
-  border: 2px solid #1e90ff;
+  border: 1px solid #1e90ff;
   outline: none;
   border-radius: 5px;
   background-color: #ffffff;
+  width: 60vw;
+  text-align: center;
 }
 input[type="text"] {
-  width: 100%;
-  padding: 15px 10px;
-  border: 2px solid #1e90ff;
-  outline: none;
-  border-radius: 5px;
-  background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 
 input[type=submit] {
-  background-color: #1e90ff;
-  color: #ffffff;
-  cursor: pointer;
+  /* background-color: #1e90ff;
+  color: #ffffff; */
   border-radius: 5px;
   padding: 15px 10px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif; 
   font-size: 16px;
   margin: 15px;
+  width: 50vw;
+}
+.submit-buttons {
+  display: flex;
+  flex-direction: column;
 }
 ul {
   list-style: none;
@@ -59,6 +55,9 @@ ul {
 .options-list-items {
   padding: 10px 10px;
   text-align: center;
+  margin: 5px;
+  border: 0.5px dotted #1e90ff;
+  border-radius: 5px;
 }
 .options-list-items:hover {
   background-color: #1e90ff;

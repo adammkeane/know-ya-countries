@@ -14,16 +14,18 @@
 
     <main>
         <section class="flex-column">
-            <div class="game-box">Country</div>
+            <div>Country</div>
             <div id="country" class="game-box"></div>
             <form autocomplete="off" class="flex-column">
                 <div class="autocomplete">
-                    <label for="capital" class="game-box flex-column">Capital</label>
+                    <label for="capital" class="flex-column">Capital</label>
                     <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
                     <ul class="options-list"></ul>
                 </div>
-                <input type="submit" id="submit-button" value="Check Answer" >
-                <input type="submit" id="next-button" value="Next">
+                <div class="submit-buttons">
+                    <input type="submit" id="submit-button" value="Check Answer" >
+                    <input type="submit" id="next-button" value="Next">
+                </div>
             </form>
         </section>  
           
