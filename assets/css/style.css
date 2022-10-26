@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* site wide styling */
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
+
 body {
-  height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
 }
+
+
 form {
   width: 75vmin;
   height: 100%;
@@ -22,6 +29,7 @@ input[type="text"] {
   outline: none;
   border-radius: 5px;
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 ul {
@@ -35,7 +43,6 @@ ul {
 }
 .options-list-items {
   padding: 10px 10px;
-  font-size: 16px;
 }
 .options-list-items:hover {
   background-color: #1e90ff;
