@@ -114,9 +114,21 @@ function removeElements() {
 
 //function to run the game
 function runGame(number) {
-  ansInput.focus();
-  ansInput.value ='';
-  generateCountry (number);
+  if (Object.keys(countryList).length === 0) {
+    ansInput.value ='';
+    ansInput.value ='All done:)';
+    countryQ.innerHTML= 'Finished';
+    ansInput.setAttribute('disabled', 'true');
+    ansSubmit.setAttribute('disabled', 'true');
+    nextButton.setAttribute('disabled', 'true');
+    ansInput.style.color = '#000000';
+    ansInput.style.backgroundColor = '#FF66D9';
+    countryQ.style.backgroundColor = '#FF66D9';
+  } else {
+    ansInput.focus();
+    ansInput.value ='';
+    generateCountry (number);
+  }
 }
 
 //function to check users answers
@@ -130,7 +142,6 @@ function checkAns (event) {
     ansFeedback.innerHTML = 'Sorry, not a valid option.<br>Answer must match an option from the dropdown list.<br>Start typing your answer to see the dropdown list options.';
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
-    document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = 'Nice one. Correct!'
@@ -140,11 +151,11 @@ function checkAns (event) {
     ansInput.setAttribute('disabled', 'true');
 
     score ++;
-    scoreCounter.innerHTML = `Score: ${score}`
+    scoreCounter.innerHTML = `Score ${score}`
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
-    ansInput.style.backgroundColor = '#F46679';
+    ansInput.style.backgroundColor = '#FF7575';
     ansInput.style.color = '#000000';
     nextButton.focus();
 
@@ -158,16 +169,10 @@ function next (event) {
   //remove default submit button functionality
   event.preventDefault();
   removeElements();
-  ansSubmit.removeAttribute('disabled');
-  ansInput.removeAttribute('disabled');
-  ansInput.style.backgroundColor = '';
-  ansInput.style.color = '#000000';
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
 
-  if (Object.keys(countryList).length === 0) {
-    ansFeedback.innerHTML = 'All done. No more countries';
-  } else if (Object.keys(countryList).length === 1) {
+  if (Object.keys(countryList).length === 1) {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     runGame(num1);
@@ -177,6 +182,9 @@ function next (event) {
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     questionNumber++;
     questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
+    ansInput.style.backgroundColor = '';
+    ansSubmit.removeAttribute('disabled');
+    ansInput.removeAttribute('disabled');
     runGame(num1);
     ansFeedback.innerHTML ='';
   };;
@@ -184,15 +192,7 @@ function next (event) {
 
 //function to randomly generate a country
 function generateCountry (num) { 
-  if (Object.keys(countryList).length === 0) {
-    countryQ.innerHTML= 'Finished';
-    ansSubmit.setAttribute('disabled', 'true');
-    ansInput.setAttribute('disabled', 'true');
-    nextButton.setAttribute('disabled', 'true');
-    ansInput.setAttribute('placeholder', 'All done:)')
-  } else {
     countryQ.innerHTML= Object.keys(countryList)[num];
-  }  
 };
 
 
