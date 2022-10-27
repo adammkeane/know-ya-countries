@@ -143,7 +143,7 @@ function checkAns (event) {
     removeElements();
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `
-    <p>Sorry, not a valid option.</p>
+    <p>Sorry, not a valid answer.</p>
     <p>Answer must match an option from the dropdown list.</p>
     <p>If you type the first letter of your answer, the dropdown list will show you all the options that start with that letter.</p>
     `;
