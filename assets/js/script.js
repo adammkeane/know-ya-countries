@@ -145,7 +145,7 @@ function checkAns (event) {
     ansFeedback.innerHTML = `
     <p>Sorry, not a valid option.</p>
     <p>Answer must match an option from the dropdown list.</p>
-    <p>Type the first letter of your answer and the dropdown list will show you all the options that start with that letter.</p>
+    <p>If you type the first letter of your answer, the dropdown list will show you all the options that start with that letter.</p>
     `;
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
