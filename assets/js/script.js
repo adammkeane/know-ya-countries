@@ -116,7 +116,7 @@ function removeElements() {
 function runGame(number) {
   if (Object.keys(countryList).length === 0) {
     ansInput.value ='';
-    ansInput.value ='All done:)';
+    ansInput.value ='All Done :)';
     countryQ.innerHTML= 'Finished';
     ansInput.setAttribute('disabled', 'true');
     ansSubmit.setAttribute('disabled', 'true');
@@ -124,6 +124,8 @@ function runGame(number) {
     ansInput.style.color = '#000000';
     ansInput.style.backgroundColor = '#FF66D9';
     countryQ.style.backgroundColor = '#FF66D9';
+    ansFeedback.style.border = '1px solid #000000';
+    ansFeedback.innerHTML = 'Finito.<br>Thanks for playing :)';
   } else {
     ansInput.focus();
     ansInput.value ='';
@@ -139,7 +141,7 @@ function checkAns (event) {
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(capitalArray).includes(ansInput.value))) {
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = 'Sorry, not a valid option.<br>Answer must match an option from the dropdown list.<br>Start typing your answer to see the dropdown list options.';
+    ansFeedback.innerHTML = '<p>Sorry, not a valid option.<br>Answer must match an option from the dropdown list.</p><p>Start typing your answer to see the dropdown list options.</p>';
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
@@ -175,8 +177,8 @@ function next (event) {
   if (Object.keys(countryList).length === 1) {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-    runGame(num1);
     ansFeedback.innerHTML ='';
+    runGame(num1);
   } else {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
