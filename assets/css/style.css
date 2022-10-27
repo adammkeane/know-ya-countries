@@ -15,11 +15,11 @@ body {
 .nav-bar {
   background-color: #000000;
   color: #ffffff;
-  padding: 0.1rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 0.2rem 1rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .autocomplete label, p {
@@ -94,12 +94,9 @@ ul {
 }
 
 #ans-feedback {
+  padding: 0.7rem;
   outline: none;
   border-radius: 5px;
   width: 50vw;
   text-align: center;
-}
-
-#ans-feedback p {
-  margin: 0.7rem;
 }

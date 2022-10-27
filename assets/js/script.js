@@ -125,7 +125,7 @@ function runGame(number) {
     ansInput.style.backgroundColor = '#FF66D9';
     countryQ.style.backgroundColor = '#FF66D9';
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = 'Finito.<br>Thanks for playing :)';
+    ansFeedback.innerHTML = '<p>Finito.<br>Thanks for playing :)</p>';
   } else {
     ansInput.focus();
     ansInput.value ='';
