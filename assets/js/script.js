@@ -130,7 +130,7 @@ function checkAns (event) {
     document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.innerHTML = 'Well done. Correct.'
-    nextButton.focus();
+    ansInput.style.backgroundColor = 'rgba(46,204,113,0.5)';
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
 
@@ -138,6 +138,7 @@ function checkAns (event) {
     scoreCounter.innerHTML = `Score: ${score}`
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
+    ansInput.style.backgroundColor = 'rgba(242,38,19,0.5)';
     nextButton.focus();
 
     ansSubmit.setAttribute('disabled', 'true');
@@ -152,6 +153,7 @@ function next (event) {
   removeElements();
   ansSubmit.removeAttribute('disabled');
   ansInput.removeAttribute('disabled');
+  ansInput.style.backgroundColor = '';
 
   if (Object.keys(countryList).length === 0) {
     ansFeedback.innerHTML = 'All done. No more countries';

@@ -68,7 +68,7 @@ ul {
   border-radius: 5px;
 }
 .options-list-items {
-  padding: 10px 10px;
+  padding: 0.5rem;
   text-align: center;
   margin: 5px;
   border: 0.5px dotted #1e90ff;
