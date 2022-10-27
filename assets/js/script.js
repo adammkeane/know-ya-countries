@@ -89,7 +89,7 @@ for (let i in capitalArray) {
     //One common class name
     listItem.classList.add('options-list-items');
     listItem.style.cursor = 'pointer';
-    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '")');
+    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
     //Display matched part in bold
     let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
     word += capitalArray[i].substr(ansInput.value.length);
@@ -140,13 +140,18 @@ function checkAns (event) {
   ansFeedback.style.backgroundColor = '';
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(capitalArray).includes(ansInput.value))) {
+    removeElements();
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = '<p>Sorry, not a valid option.<br>Answer must match an option from the dropdown list.</p><p>Start typing your answer to see the dropdown list options.</p>';
+    ansFeedback.innerHTML = `
+    <p>Sorry, not a valid option.</p>
+    <p>Answer must match an option from the dropdown list.</p>
+    <p>Type the first letter of your answer and the dropdown list will show you all the options that start with that letter.</p>
+    `;
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = 'Nice one. Correct!'
+    ansFeedback.innerHTML = '<p>Nice one. Correct!</p>'
     ansInput.style.backgroundColor = '#44C167';
     ansInput.style.color = '#000000';
     ansSubmit.setAttribute('disabled', 'true');
@@ -156,7 +161,7 @@ function checkAns (event) {
     scoreCounter.innerHTML = `Score ${score}`
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
+    ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[num1]}</b></p>`;
     ansInput.style.backgroundColor = '#FF7575';
     ansInput.style.color = '#000000';
     nextButton.focus();

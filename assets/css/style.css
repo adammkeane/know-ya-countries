@@ -94,9 +94,12 @@ ul {
 }
 
 #ans-feedback {
-  padding: 0.5rem;
   outline: none;
   border-radius: 5px;
   width: 50vw;
   text-align: center;
+}
+
+#ans-feedback p {
+  margin: 0.7rem;
 }
