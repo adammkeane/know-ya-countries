@@ -89,7 +89,7 @@ for (let i in capitalArray) {
     //One common class name
     listItem.classList.add('options-list-items');
     listItem.style.cursor = 'pointer';
-    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
+    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '")');
     //Display matched part in bold
     let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
     word += capitalArray[i].substr(ansInput.value.length);
