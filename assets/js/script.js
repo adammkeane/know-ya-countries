@@ -123,22 +123,29 @@ function runGame(number) {
 function checkAns (event) {
   //remove default submit button functionality
   event.preventDefault();
+  ansFeedback.style.backgroundColor = '';
   //only allow real capital cities from the object as options and check if answer correct.
   if (!(Object.values(capitalArray).includes(ansInput.value))) {
-    ansFeedback.innerHTML = 'Sorry, not a valid option. Please section an answer from the dropdown list. Start typing your answer to bring up the dropdown menu.';
+    ansFeedback.style.border = '1px solid #000000';
+    ansFeedback.innerHTML = 'Sorry, not a valid option.<br>Answer must match an option from the dropdown list.<br>Start typing your answer to see the dropdown list options.';
+    ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
     document.getElementById('answer').focus();
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
-    ansFeedback.innerHTML = 'Well done. Correct.'
-    ansInput.style.backgroundColor = 'rgba(46,204,113,0.5)';
+    ansFeedback.style.border = '1px solid #000000';
+    ansFeedback.innerHTML = 'Nice one. Correct!'
+    ansInput.style.backgroundColor = '#44C167';
+    ansInput.style.color = '#000000';
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
 
     score ++;
     scoreCounter.innerHTML = `Score: ${score}`
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
+    ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `Unlucky. The correct answer was ${Object.values(countryList)[num1]}`;
-    ansInput.style.backgroundColor = 'rgba(242,38,19,0.5)';
+    ansInput.style.backgroundColor = '#F46679';
+    ansInput.style.color = '#000000';
     nextButton.focus();
 
     ansSubmit.setAttribute('disabled', 'true');
@@ -154,6 +161,9 @@ function next (event) {
   ansSubmit.removeAttribute('disabled');
   ansInput.removeAttribute('disabled');
   ansInput.style.backgroundColor = '';
+  ansInput.style.color = '#000000';
+  ansFeedback.style.border = 'none';
+  ansFeedback.style.backgroundColor = '';
 
   if (Object.keys(countryList).length === 0) {
     ansFeedback.innerHTML = 'All done. No more countries';

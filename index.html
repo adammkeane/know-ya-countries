@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="flex-column">
         <section class="flex-column">
             <div>
                 <p>Country</p>
@@ -38,10 +38,14 @@
                 </div>
             </form>
         </section>  
-          
-        <div id="ans-feedback"></div>
-        <div id="score">Score: 0</div>
-        <div id="questions-left">Question 1 / 50</div>
+        <section class="flex-row">
+            <div id="score">Score: 0</div>
+            <div id="questions-left">Question 1 / 50</div>    
+        </section>  
+        <section class="flex-column">
+            <div id="ans-feedback" ></div>
+        </section>
+        
     </main>
 
     <footer>
