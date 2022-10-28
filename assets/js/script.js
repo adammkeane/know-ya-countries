@@ -80,6 +80,7 @@ const welcome = document.getElementById('welcome');
 startBtn.addEventListener('click', function() {
   gameBoard.style.display = 'flex';
   welcome.style.display = 'none';
+  ansInput.focus();
 });
 
 
@@ -131,8 +132,8 @@ function runGame(number) {
     ansSubmit.setAttribute('disabled', 'true');
     nextButton.setAttribute('disabled', 'true');
     ansInput.style.color = '#000000';
-    ansInput.style.backgroundColor = '#FF66D9';
-    countryQ.style.backgroundColor = '#FF66D9';
+    ansInput.style.backgroundColor = '#FF85E0';
+    countryQ.style.backgroundColor = '#FF85E0';
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Finito.<br>Thanks for playing :)</p>';
   } else {

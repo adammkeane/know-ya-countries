@@ -15,7 +15,7 @@ body {
 .nav-bar {
   background-color: #000000;
   color: #ffffff;
-  padding: 0.2rem 2rem 0.3rem 0.6rem;
+  padding: 0.2rem 1.5rem 0.3rem 1rem;
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
