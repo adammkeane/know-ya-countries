@@ -15,7 +15,7 @@ body {
 .nav-bar {
   background-color: #000000;
   color: #ffffff;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 2rem 0.3rem 0.6rem;
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
@@ -26,10 +26,14 @@ body {
   margin: 0.2rem 0;
 }
 
-form, .flex-row, #ans-feedback {
+form, .flex-row, #ans-feedback, h2 {
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
 }
+#welcome .game-box {
+  margin: 1rem;
+}
+
 input[type="text"], .game-box {
   padding: 0.3rem;
   border: 1px solid #000000;
@@ -100,4 +104,8 @@ ul {
   width: 50vw;
   text-align: center;
   margin-top: 1rem;
+}
+
+#game-board {
+  display: none;
 }

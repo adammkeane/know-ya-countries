@@ -73,6 +73,15 @@ const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
+const startBtn = document.getElementById('start-button');
+const gameBoard = document.getElementById('game-board');
+const welcome = document.getElementById('welcome');
+
+startBtn.addEventListener('click', function() {
+  gameBoard.style.display = 'flex';
+  welcome.style.display = 'none';
+});
+
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)

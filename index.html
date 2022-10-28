@@ -19,33 +19,44 @@
             </div>
         </nav>
     </header>
-
-    <main class="flex-column">
-        <section class="flex-column">
-            <div>
-                <p><b>Country</b></p>
+    <main>
+        <section id="welcome">
+            <div class="flex-column">
+                <p class="game-box">Try our first game<br><b><em>Capital Cities of Asia </em></b></p>
             </div>
-            <div id="country" class="game-box"></div>
-            <form autocomplete="off" class="flex-column">
-                <div class="autocomplete">
-                    <label for="capital" class="flex-column"><b>Capital</b></label>
-                    <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
-                    <ul class="options-list"></ul>
-                </div>
-                <div class="submit-buttons">
-                    <input type="submit" id="submit-button" value="Check Answer" >
-                    <input type="submit" id="next-button" value="Next">
-                </div>
-            </form>
-        </section>  
-        <section class="flex-row">
-            <div id="score">Score 0</div>
-            <div id="questions-left">Question 1 / 50</div>    
-        </section>  
-        <section class="flex-column">
-            <div id="ans-feedback"></div>
+            <div class="submit-buttons flex-column">
+                <input type="submit" id="howto-button" value="How To Play">
+                <input type="submit" id="start-button" value="Start Game" >
+            </div>
         </section>
         
+        <div class="flex-column" id="game-board">
+            <section class="flex-column">
+                <div>
+                    <p><b>Country</b></p>
+                </div>
+                <div id="country" class="game-box"></div>
+                <form autocomplete="off" class="flex-column">
+                    <div class="autocomplete">
+                        <label for="capital" class="flex-column"><b>Capital</b></label>
+                        <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
+                        <ul class="options-list"></ul>
+                    </div>
+                    <div class="submit-buttons">
+                        <input type="submit" id="submit-button" value="Check Answer" >
+                        <input type="submit" id="next-button" value="Next">
+                    </div>
+                </form>
+            </section>  
+            <section class="flex-row">
+                <div id="score">Score 0</div>
+                <div id="questions-left">Question 1 / 50</div>    
+            </section>  
+            <section class="flex-column">
+                <div id="ans-feedback"></div>
+            </section>
+            
+        </div>
     </main>
 
     <footer>
