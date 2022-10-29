@@ -13,15 +13,25 @@ body {
 }
 
 .nav-bar {
+  font-size: 13px;
   background-color: #000000;
   color: #ffffff;
   padding: 0.2rem 1rem;
   margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid
 }
-
+.nav-bar > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  justify-self: center;
+}
+.nav-bar > *:last-child {
+  justify-self: right;
+}
+.nav-bar p {
+  display: inline-block;
+  margin-left: 1rem;
+}
 .autocomplete label, p {
   margin: 0.2rem 0;
 }
