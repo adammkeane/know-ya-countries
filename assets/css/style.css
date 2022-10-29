@@ -41,7 +41,13 @@ form, .flex-row, #ans-feedback, h2 {
   margin-bottom: 0.2rem;
 }
 #welcome .game-box {
-  margin: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+#welcome .game-box:hover {
+  cursor: pointer;
+}
+#welcome span {
+  font-size: 13px;
 }
 
 input[type="text"], .game-box {
