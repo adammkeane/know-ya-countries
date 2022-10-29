@@ -41,9 +41,9 @@ form, .flex-row, #ans-feedback, h2 {
   margin-bottom: 0.2rem;
 }
 #welcome .game-box {
-  margin: 0 1rem 1rem 1rem;
+  margin: 0 1rem 0.5rem 1rem;
 }
-#welcome .game-box:hover {
+#welcome #start-asia-capitals:hover {
   cursor: pointer;
 }
 #welcome span {

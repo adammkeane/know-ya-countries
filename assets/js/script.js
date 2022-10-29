@@ -73,14 +73,20 @@ const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
-const startBtn = document.getElementById('start-button');
+const startBtnAsiaCaps = document.getElementById('start-asia-capitals');
 const gameBoard = document.getElementById('game-board');
 const welcome = document.getElementById('welcome');
 
-startBtn.addEventListener('click', function() {
+startBtnAsiaCaps.addEventListener('click', function() {
   gameBoard.style.display = 'flex';
   welcome.style.display = 'none';
   ansInput.focus();
+});
+
+ansInput.addEventListener('focus', function(){
+  ansFeedback.innerHTML ='';
+  ansFeedback.style.border = 'none';
+  ansFeedback.style.backgroundColor = '';
 });
 
 
@@ -163,6 +169,7 @@ function checkAns (event) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Nice one. Correct!</p>'
     ansInput.style.backgroundColor = '#44C167';
+    ansFeedback.style.backgroundColor = '#44C167';
     ansInput.style.color = '#000000';
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
@@ -173,6 +180,7 @@ function checkAns (event) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[num1]}</b></p>`;
     ansInput.style.backgroundColor = '#FF7575';
+    ansFeedback.style.backgroundColor = '#FF7575';
     ansInput.style.color = '#000000';
     nextButton.focus();
 
@@ -188,11 +196,11 @@ function next (event) {
   removeElements();
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
+  ansFeedback.innerHTML ='';
 
   if (Object.keys(countryList).length === 1) {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-    ansFeedback.innerHTML ='';
     runGame(num1);
   } else {
     delete countryList[Object.keys(countryList)[num1]];
@@ -203,7 +211,6 @@ function next (event) {
     ansSubmit.removeAttribute('disabled');
     ansInput.removeAttribute('disabled');
     runGame(num1);
-    ansFeedback.innerHTML ='';
   };;
 };
 
