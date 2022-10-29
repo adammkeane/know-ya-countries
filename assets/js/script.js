@@ -76,6 +76,7 @@ const questionsLeft = document.getElementById('questions-left');
 const startBtnAsiaCaps = document.getElementById('start-asia-capitals');
 const gameBoard = document.getElementById('game-board');
 const welcome = document.getElementById('welcome');
+const allAsiaCaps = document.getElementById('all-asia-caps');
 
 startBtnAsiaCaps.addEventListener('click', function() {
   gameBoard.style.display = 'flex';
@@ -87,8 +88,34 @@ ansInput.addEventListener('focus', function(){
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
+  allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
+  removeElements();
 });
 
+allAsiaCaps.addEventListener('click', function(){
+  if ((document.getElementsByClassName('options-list-items').length) > 0) {
+    removeElements();
+    allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
+  } else {
+    allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-up"></i>';
+    removeElements();
+    //loop through above array
+    let sortCapsArray = capitalArray.sort();
+    for (let i in sortCapsArray) {
+        //create li element
+        let listItem = document.createElement('li');
+        //One common class name
+        listItem.classList.add('options-list-items');
+        listItem.style.cursor = 'pointer';
+        listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansInput.focus()', allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-up"></i>');
+        //Display matched part in bold
+        let word =sortCapsArray[i];
+        //display the value in array
+        listItem.innerHTML = word;
+        document.querySelector('.options-list').appendChild(listItem);
+      }
+  }
+});
 
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
@@ -197,6 +224,7 @@ function next (event) {
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
   ansFeedback.innerHTML ='';
+  allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
 
   if (Object.keys(countryList).length === 1) {
     delete countryList[Object.keys(countryList)[num1]];
