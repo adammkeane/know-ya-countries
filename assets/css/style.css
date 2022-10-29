@@ -18,7 +18,7 @@ body {
   color: #ffffff;
   padding: 0.2rem 1rem;
   margin-bottom: 0.5rem;
-  display: grid
+  display: grid;
 }
 .nav-bar > * {
   grid-column-start: 1;

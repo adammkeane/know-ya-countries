@@ -93,12 +93,17 @@ ansInput.addEventListener('focus', function(){
 });
 
 allAsiaCaps.addEventListener('click', function(){
-  if ((document.getElementsByClassName('options-list-items').length) > 0) {
+  ansFeedback.innerHTML ='';
+  ansFeedback.style.border = 'none';
+  ansFeedback.style.backgroundColor = '';
+  
+  if ((document.getElementsByClassName('options-list-items').length) > 0 && !(ansInput.value.length > 0)) {
     removeElements();
     allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   } else {
     allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-up"></i>';
     removeElements();
+    ansInput.value ='';
     //loop through above array
     let sortCapsArray = capitalArray.sort();
     for (let i in sortCapsArray) {
