@@ -128,5 +128,18 @@ ul {
 
 #all-asia-caps {
   cursor: pointer;
-  width: 5vw;
+  width: 20px;
+}
+
+.inp-and-btn {
+  display: grid;
+}
+
+.inp-and-btn > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  justify-self: center;
+}
+.inp-and-btn > *:last-child {
+  justify-self: right;
 }
