@@ -97,6 +97,7 @@ allAsiaCaps.addEventListener('click', function(event){
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
+  ansSubmit.setAttribute('disabled', 'true');
   
   if ((document.getElementsByClassName('options-list-items').length) > 0 && !(ansInput.value.length > 0)) {
     removeElements();
@@ -126,6 +127,7 @@ allAsiaCaps.addEventListener('click', function(event){
 ansInput.addEventListener('keyup', (e) => {
 //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
 removeElements();
+ansSubmit.removeAttribute('disabled');
 //loop through above array
 for (let i in capitalArray) {
   //convert input to lowercase and compare with each string
@@ -147,10 +149,14 @@ for (let i in capitalArray) {
     document.querySelector('.options-list').appendChild(listItem);
   }
 }
+  if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
+    ansSubmit.setAttribute('disabled', 'true');
+  }
 });
 
 function displayNames(value) {
   ansInput.value = value;
+  ansSubmit.removeAttribute('disabled')
   removeElements();
 }
 function removeElements() {
@@ -163,6 +169,7 @@ function removeElements() {
 
 //function to run the game
 function runGame(number) {
+  ansSubmit.setAttribute('disabled', 'true');
   if (Object.keys(countryList).length === 0) {
     ansInput.value ='';
     ansInput.value ='All Done :)';
@@ -200,6 +207,7 @@ function checkAns (event) {
     `;
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
+    ansSubmit.setAttribute('disabled','true');
   } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Nice one. Correct!</p>'
