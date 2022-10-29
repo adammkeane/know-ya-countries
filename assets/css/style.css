@@ -125,3 +125,8 @@ ul {
 #game-board {
   display: none;
 }
+
+#all-asia-caps {
+  cursor: pointer;
+  width: 5vw;
+}

@@ -92,7 +92,8 @@ ansInput.addEventListener('focus', function(){
   removeElements();
 });
 
-allAsiaCaps.addEventListener('click', function(){
+allAsiaCaps.addEventListener('click', function(event){
+  event.preventDefault();
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
@@ -169,6 +170,8 @@ function runGame(number) {
     ansInput.setAttribute('disabled', 'true');
     ansSubmit.setAttribute('disabled', 'true');
     nextButton.setAttribute('disabled', 'true');
+    allAsiaCaps.setAttribute('disabled', 'true');
+    allAsiaCaps.style.cursor = 'default';
     ansInput.style.color = '#000000';
     ansInput.style.backgroundColor = '#FF85E0';
     countryQ.style.backgroundColor = '#FF85E0';
@@ -205,7 +208,8 @@ function checkAns (event) {
     ansInput.style.color = '#000000';
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
-
+    allAsiaCaps.setAttribute('disabled', 'true');
+    allAsiaCaps.style.cursor = 'default';
     score ++;
     scoreCounter.innerHTML = `Score ${score}`
   } else if (ansInput.value !== Object.values(countryList)[num1]) {
@@ -218,6 +222,8 @@ function checkAns (event) {
 
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
+    allAsiaCaps.setAttribute('disabled', 'true');
+    allAsiaCaps.style.cursor = 'default';
   }
 };
 
@@ -243,6 +249,8 @@ function next (event) {
     ansInput.style.backgroundColor = '';
     ansSubmit.removeAttribute('disabled');
     ansInput.removeAttribute('disabled');
+    allAsiaCaps.removeAttribute('disabled');
+    allAsiaCaps.style.cursor = 'pointer';
     runGame(num1);
   };;
 };
