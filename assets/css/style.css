@@ -183,3 +183,33 @@ ul {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* footer styling */
+footer {
+  max-width: 60%;
+  margin: 0.5rem auto;
+}
+
+footer li {
+  list-style: none;
+}
+
+footer a{
+  color: #000000;
+  margin: 0 0.5rem;
+  padding: 0.2rem;
+  font-size: 1.2rem;
+  border: 1px solid #ffffff;
+}
+
+footer a:hover {
+  border: 1px solid #000000;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 5px
+}
+
+footer ul {
+  display: flex;  
+  justify-content: center;
+}

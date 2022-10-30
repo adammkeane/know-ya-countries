@@ -187,6 +187,7 @@ function runGame(number) {
     countryQ.style.backgroundColor = '#FF85E0';
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Finito.<br>Thanks for playing :)</p>';
+    ansFeedback.style.backgroundColor = '#FF85E0';
   } else {
     ansInput.focus();
     ansInput.value ='';
