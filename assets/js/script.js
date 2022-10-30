@@ -124,35 +124,39 @@ allAsiaCaps.addEventListener('click', function(event){
   }
 });
 
-ansInput.addEventListener('keyup', (e) => {
-//Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
-removeElements();
-ansSubmit.removeAttribute('disabled');
-//loop through above array
-for (let i in capitalArray) {
-  //convert input to lowercase and compare with each string
-   if (
-    capitalArray[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
-    ansInput.value !== ''
-  ) {
-    //create li element
-    let listItem = document.createElement('li');
-    //One common class name
-    listItem.classList.add('options-list-items');
-    listItem.style.cursor = 'pointer';
-    listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
-    //Display matched part in bold
-    let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
-    word += capitalArray[i].substr(ansInput.value.length);
-    //display the value in array
-    listItem.innerHTML = word;
-    document.querySelector('.options-list').appendChild(listItem);
+function populateList(e) {
+    //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
+  removeElements();
+  ansSubmit.removeAttribute('disabled');
+  //loop through above array
+  for (let i in capitalArray) {
+    //convert input to lowercase and compare with each string
+    if (
+      capitalArray[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
+      ansInput.value !== ''
+    ) {
+      //create li element
+      let listItem = document.createElement('li');
+      //One common class name
+      listItem.classList.add('options-list-items');
+      listItem.style.cursor = 'pointer';
+      listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
+      //Display matched part in bold
+      let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
+      word += capitalArray[i].substr(ansInput.value.length);
+      //display the value in array
+      listItem.innerHTML = word;
+      document.querySelector('.options-list').appendChild(listItem);
+    }
   }
-}
-  if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
-    ansSubmit.setAttribute('disabled', 'true');
-  }
-});
+    if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
+      ansSubmit.setAttribute('disabled', 'true');
+    }
+};
+
+
+ansInput.addEventListener('keyup', populateList);
+ansInput.addEventListener('touchend', populateList);
 
 function displayNames(value) {
   ansInput.value = value;
