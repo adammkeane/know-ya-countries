@@ -20,29 +20,36 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section id="welcome">
-            <div class="flex-column">
-                <p><b>Games</b></p>
-                <a class="game-box" id="start-asia-capitals" href="asia-capitals.html"><b>Capital Cities of Asia</b><br><span>(our first game...exciting)</span></a>
-                <p class="game-box"><b>Capital Cities of the Caribbean</b><br><span>(coming soon)</span></p>
-            </div>
-            <div class="submit-buttons flex-column">
-                <input type="submit" id="myBtn" value="How To Play">
-            </div>
-        </section>
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>How To Play</h2>
-                <p>Answer must match an option from the dropdown list.</p>
-                <p>If you type the first letter of your answer, the dropdown list will show you all the options that start with that letter.
-            </div>
-        
+    <main>   
+        <div class="flex-column" id="game-board">
+            <section class="flex-column">
+                <div>
+                    <p><b>Country</b></p>
+                </div>
+                <div id="country" class="game-box"></div>
+                <form autocomplete="off" class="flex-column">
+                    <div class="autocomplete">
+                        <label for="capital" class="flex-column"><b>Capital</b></label>
+                        <div class="inp-and-btn">
+                            <input id="answer" type="text" name="capital" placeholder="What do you think? :)">
+                            <button class="game-box" id="all-asia-caps"><i class="fa-solid fa-caret-down"></i></button>
+                        </div>
+                        
+                        <ul class="options-list"></ul>
+                    </div>
+                    <div class="submit-buttons">
+                        <input type="submit" id="submit-button" value="Check Answer" >
+                        <input type="submit" id="next-button" value="Next">
+                    </div>
+                </form>
+            </section>  
+            <section class="flex-row">
+                <div id="score">Score 0</div>
+                <div id="questions-left">Question 1 / 50</div>    
+            </section>  
+            <section class="flex-column">
+                <div id="ans-feedback"></div>
+            </section>
         </div>
     </main>
 

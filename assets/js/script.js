@@ -73,16 +73,10 @@ const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
-const startBtnAsiaCaps = document.getElementById('start-asia-capitals');
 const gameBoard = document.getElementById('game-board');
 const welcome = document.getElementById('welcome');
 const allAsiaCaps = document.getElementById('all-asia-caps');
 
-startBtnAsiaCaps.addEventListener('click', function() {
-  gameBoard.style.display = 'flex';
-  welcome.style.display = 'none';
-  ansInput.focus();
-});
 
 ansInput.addEventListener('focus', function(){
   ansFeedback.innerHTML ='';

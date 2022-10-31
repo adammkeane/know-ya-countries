@@ -122,9 +122,6 @@ ul {
   margin-top: 1rem;
 }
 
-#game-board {
-  display: none;
-}
 
 #all-asia-caps {
   cursor: pointer;
@@ -142,6 +139,11 @@ ul {
 }
 .inp-and-btn > *:last-child {
   justify-self: right;
+}
+
+#welcome a {
+  text-decoration: none;
+  color: #000000;
 }
 
 /* The Modal (background) */
