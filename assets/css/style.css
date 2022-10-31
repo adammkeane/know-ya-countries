@@ -141,10 +141,18 @@ ul {
   justify-self: right;
 }
 
-#welcome a {
+#welcome a, .nav-bar a {
   text-decoration: none;
+}
+
+#welcome a {
   color: #000000;
 }
+
+.nav-bar a {
+  color: #ffffff;
+}
+
 
 /* The Modal (background) */
 .modal {
