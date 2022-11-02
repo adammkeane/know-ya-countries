@@ -187,7 +187,7 @@ function checkAns (event) {
     ansFeedback.innerHTML = `
     <p>Sorry, not a valid guess.</p>
     <p>Guess must match an option from the dropdown list.</p>
-    <p>If you type the first letter of your guess, the dropdown list automatically will show you all the options that start with that letter.</p>
+    <p>If you type the first letter of your guess, the dropdown list will automatically show all the options that start with that letter.</p>
     <p>Alternatively, if you want to see all options (every capital city in the region of the quiz), click the dropdown arrow to the right of the <b>What Do You Think</b> box.</p>
     `;
     ansFeedback.style.backgroundColor = '#EADE06';

@@ -226,6 +226,9 @@ footer ul {
   .flex-row {
     width: 30vw;
   }
+  #ans-feedback {
+  width: 30vw;
+  }
 }
 @media (min-width: 1000px) {
   input[type=submit] {
@@ -237,4 +240,7 @@ footer ul {
   .flex-row {
     width: 20vw;
   }
+  #ans-feedback {
+    width: 20vw;
+    }
 }
