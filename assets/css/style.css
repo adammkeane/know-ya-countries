@@ -46,7 +46,7 @@ form, .flex-row, #ans-feedback, .modal-content p {
 #welcome .game-box {
   margin: 0 1rem 0.5rem 1rem;
 }
-#welcome #start-asia-capitals:hover, #my-btn-nav {
+#welcome #start-asia-capitals:hover, #modal-btn-nav {
   cursor: pointer;
 }
 #welcome span {

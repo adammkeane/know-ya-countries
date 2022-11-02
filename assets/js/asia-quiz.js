@@ -54,12 +54,12 @@ let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
 //create random numbers between 0 and number of country key indexes
-let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
 document.addEventListener("DOMContentLoaded", function() {
   //check users answer
   ansSubmit.addEventListener('click', checkAns);
   nextButton.addEventListener('click', next);
-  runGame(num1);
+  runGame(index1);
 });
 // reference
 const ansInput = document.getElementById('answer');
@@ -193,7 +193,7 @@ function checkAns (event) {
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
     ansSubmit.setAttribute('disabled','true');
-  } else if (ansInput.value === Object.values(countryList)[num1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[num1] === 'Palestine')) {
+  } else if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Nice one. Correct!</p>'
     ansInput.style.backgroundColor = '#44C167';
@@ -205,9 +205,9 @@ function checkAns (event) {
     allAsiaCaps.style.cursor = 'default';
     score ++;
     scoreCounter.innerHTML = `Score ${score}`
-  } else if (ansInput.value !== Object.values(countryList)[num1]) {
+  } else if (ansInput.value !== Object.values(countryList)[index1]) {
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[num1]}</b></p>`;
+    ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
     ansInput.style.backgroundColor = '#FF7575';
     ansFeedback.style.backgroundColor = '#FF7575';
     ansInput.style.color = '#000000';
@@ -228,12 +228,12 @@ function next (event) {
   ansFeedback.innerHTML ='';
   allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   if (Object.keys(countryList).length === 1) {
-    delete countryList[Object.keys(countryList)[num1]];
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-    runGame(num1);
+    delete countryList[Object.keys(countryList)[index1]];
+    index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+    runGame(index1);
   } else {
-    delete countryList[Object.keys(countryList)[num1]];
-    num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+    delete countryList[Object.keys(countryList)[index1]];
+    index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     questionNumber++;
     questionsLeft.innerHTML = `Question ${questionNumber} / 50`;
     ansInput.style.backgroundColor = '';
@@ -241,7 +241,7 @@ function next (event) {
     ansInput.removeAttribute('disabled');
     allAsiaCaps.removeAttribute('disabled');
     allAsiaCaps.style.cursor = 'pointer';
-    runGame(num1);
+    runGame(index1);
   };;
 };
 //function to randomly generate a country
@@ -249,9 +249,9 @@ function generateCountry (num) {
     countryQ.innerHTML= Object.keys(countryList)[num];
 };
 // Get the modal
-let modal = document.getElementById("myModal");
+let modal = document.getElementById("how-to-modal");
 // Get the button that opens the modal
-let btnNav = document.getElementById("my-btn-nav");
+let btnNav = document.getElementById("modal-btn-nav");
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 

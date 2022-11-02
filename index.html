@@ -13,17 +13,19 @@
 </head>
 <body>
     <header>
+        <!-- Navigation Bar -->
         <nav class="nav-bar">
             <div>
                 <a href="index.html"><h1>Know Ya Countries</h1></a>
             </div>
             <div>
                 <a href="index.html"><i class="fa-solid fa-house"></i></a>
-                <p id="my-btn-nav"><i class="fa-solid fa-question"></i></p>
+                <p id="modal-btn-nav"><i class="fa-solid fa-question"></i></p>
             </div>
         </nav>
     </header>
     <main>
+        <!-- Game Selection Section -->
         <section id="welcome">
             <div class="flex-column">
                 <p>Games</p>
@@ -31,20 +33,16 @@
                 <p class="game-box"><b>Capital Cities of the Caribbean</b><br><span>(coming soon)</span></p>
             </div>
             <div class="submit-buttons flex-column">
-                <input type="submit" id="my-btn" value="How To Play">
+                <input type="submit" id="modal-btn" value="How To Play">
             </div>
-        </section>
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
+        </section>   
+        <!-- How To Modal Section, accessed from nav bar button and the how to play button -->
+        <section id="how-to-modal" class="modal">
             <div class="modal-content">
                 <div class="inp-and-btn">
                     <h2 class="game-box-modal">How To Play</h2>
                     <span class="close">&times;</span>
-                </div>
-                
+                </div> 
                 <ul>
                     <li>Put your guess for the capital city into the <b>What Do You Think</b> box.</li>
                     <li>Your guess can be typed, or selected from the dropdown list.</li>
@@ -56,10 +54,9 @@
                     <li>Enjoy :)</li>
                 </ul>
             </div>
-        
-        </div>
+        </section>
     </main>
-
+     <!-- social media links in footer. Code used from the Love Running Walkthrough Project (https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/) -->
     <footer>
         <ul>
             <li>
@@ -80,7 +77,6 @@
             </li>
         </ul>
     </footer>
-    
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/6b27cf5798.js" crossorigin="anonymous"></script>
     <script src="assets/js/home-page.js"></script>
