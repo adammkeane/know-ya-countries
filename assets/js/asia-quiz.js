@@ -199,9 +199,10 @@ function checkAns (event) {
     removeElements();
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `
-    <p>Sorry, not a valid answer.</p>
-    <p>Answer must match an option from the dropdown list.</p>
-    <p>If you type the first letter of your answer, the dropdown list will show you all the options that start with that letter.</p>
+    <p>Sorry, not a valid guess.</p>
+    <p>Guess must match an option from the dropdown list.</p>
+    <p>If you type the first letter of your guess, the dropdown list automatically will show you all the options that start with that letter.</p>
+    <p>Alternatively, if you want to see all options (every capital city in the region of the quiz), click the dropdown arrow to the right of the <b>What Do You Think</b> box.</p>
     `;
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value ='';
