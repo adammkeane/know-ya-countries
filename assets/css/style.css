@@ -10,6 +10,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
 }
+#score, #questions-left {
+  font-size: 0.9rem;
+}
 .nav-bar {
   font-size: 13px;
   background-color: #000000;
@@ -208,4 +211,30 @@ footer a:hover {
 footer ul {
   display: flex;  
   justify-content: center;
+}
+/* Media Queries */
+@media (min-width: 600px) {
+  #score, #questions-left {
+    font-size: 1rem;
+  }
+  input[type=submit] {
+    width: 30vw;
+  }
+  input[type="text"], .game-box {
+    width: 40vw;
+  }
+  .flex-row {
+    width: 30vw;
+  }
+}
+@media (min-width: 1000px) {
+  input[type=submit] {
+    width: 20vw;
+  }
+  input[type="text"], .game-box {
+    width: 30vw;
+  }
+  .flex-row {
+    width: 20vw;
+  }
 }

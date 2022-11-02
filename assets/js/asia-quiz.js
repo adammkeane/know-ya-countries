@@ -50,21 +50,17 @@ let countryList = {
   'Vietnam' : 'Hanoi',
   'Yemen' : "Sana'a"
 };
-
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
-
 //create random numbers between 0 and number of country key indexes
 let num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-
 document.addEventListener("DOMContentLoaded", function() {
   //check users answer
   ansSubmit.addEventListener('click', checkAns);
   nextButton.addEventListener('click', next);
   runGame(num1);
 });
-
 // reference
 const ansInput = document.getElementById('answer');
 const ansSubmit = document.getElementById('submit-button');
@@ -76,8 +72,6 @@ const questionsLeft = document.getElementById('questions-left');
 const gameBoard = document.getElementById('game-board');
 const welcome = document.getElementById('welcome');
 const allAsiaCaps = document.getElementById('all-asia-caps');
-
-
 ansInput.addEventListener('focus', function(){
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
@@ -85,14 +79,12 @@ ansInput.addEventListener('focus', function(){
   allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   removeElements();
 });
-
 allAsiaCaps.addEventListener('click', function(event){
   event.preventDefault();
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
   ansSubmit.setAttribute('disabled', 'true');
-  
   if ((document.getElementsByClassName('options-list-items').length) > 0 && !(ansInput.value.length > 0)) {
     removeElements();
     allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
@@ -117,7 +109,6 @@ allAsiaCaps.addEventListener('click', function(event){
       }
   }
 });
-
 function populateList(e) {
     //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
   removeElements();
@@ -146,11 +137,8 @@ function populateList(e) {
       document.querySelector('.options-list').appendChild(listItem);
     }
   }
-   
 };
-
 ansInput.addEventListener('keyup', populateList);
-
 function displayNames(value) {
   ansInput.value = value;
   ansSubmit.removeAttribute('disabled')
@@ -163,7 +151,6 @@ function removeElements() {
   item.remove();
   });
 }
-
 //function to run the game
 function runGame(number) {
   ansSubmit.setAttribute('disabled', 'true');
@@ -188,7 +175,6 @@ function runGame(number) {
     generateCountry (number);
   }
 }
-
 //function to check users answers
 function checkAns (event) {
   //remove default submit button functionality
@@ -226,14 +212,12 @@ function checkAns (event) {
     ansFeedback.style.backgroundColor = '#FF7575';
     ansInput.style.color = '#000000';
     nextButton.focus();
-
     ansSubmit.setAttribute('disabled', 'true');
     ansInput.setAttribute('disabled', 'true');
     allAsiaCaps.setAttribute('disabled', 'true');
     allAsiaCaps.style.cursor = 'default';
   }
 };
-
 //function for next button
 function next (event) {
   //remove default submit button functionality
@@ -243,7 +227,6 @@ function next (event) {
   ansFeedback.style.backgroundColor = '';
   ansFeedback.innerHTML ='';
   allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
-
   if (Object.keys(countryList).length === 1) {
     delete countryList[Object.keys(countryList)[num1]];
     num1 = Math.floor(Math.random() * (Object.keys(countryList).length));
@@ -261,32 +244,24 @@ function next (event) {
     runGame(num1);
   };;
 };
-
 //function to randomly generate a country
 function generateCountry (num) { 
     countryQ.innerHTML= Object.keys(countryList)[num];
 };
-
-
 // Get the modal
 let modal = document.getElementById("myModal");
-
 // Get the button that opens the modal
 let btnNav = document.getElementById("my-btn-nav");
-
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
-
 // When the user clicks the button, open the modal 
 btnNav.onclick = function() {
   modal.style.display = "flex";
 }
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
