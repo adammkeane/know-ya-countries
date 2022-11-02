@@ -6,12 +6,10 @@
   padding: 0;
   border: 0;
 }
-
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
 }
-
 .nav-bar {
   font-size: 13px;
   background-color: #000000;
@@ -33,13 +31,11 @@ body {
   margin-left: 1rem;
 }
 #ans-feedback p {
-
   margin:1rem;
 }
 .autocomplete label, p {
   margin: 0.2rem 0;
 }
-
 form, .flex-row, #ans-feedback, .modal-content p {
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
@@ -53,7 +49,6 @@ form, .flex-row, #ans-feedback, .modal-content p {
 #welcome span {
   font-size: 13px;
 }
-
 input[type="text"], .game-box {
   padding: 0.3rem;
   border: 1px solid #000000;
@@ -67,7 +62,6 @@ input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
-
 input[type=submit] {
   border-radius: 5px;
   padding: 0.3rem;
@@ -75,13 +69,11 @@ input[type=submit] {
   font-size: 16px;
   width: 50vw;
   margin: 0.5rem;
-
 }
 .submit-buttons {
   display: flex;
   flex-direction: column;
 }
-
 .options-list {
   width: 100%;
   background-color: #ffffff;
@@ -100,14 +92,12 @@ input[type=submit] {
   background-color: #000000;
   color: #ffffff;
 }
-
 .flex-column {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-
 .flex-row {
   text-align: center;
   width: 50vw;
@@ -115,8 +105,6 @@ input[type=submit] {
   align-items: center;
   justify-content: space-around;
 }
-
-
 #ans-feedback {
   padding: 0.7rem;
   outline: none;
@@ -125,17 +113,13 @@ input[type=submit] {
   text-align: center;
   margin: 1rem 0;
 }
-
-
 #all-asia-caps {
   cursor: pointer;
   width: 25px;
 }
-
 .inp-and-btn {
   display: grid;
 }
-
 .inp-and-btn > * {
   grid-column-start: 1;
   grid-row-start: 1;
@@ -144,35 +128,29 @@ input[type=submit] {
 .inp-and-btn > *:last-child {
   justify-self: right;
 }
-
 #welcome a, .nav-bar a {
   text-decoration: none;
 }
-
 #welcome a {
   color: #000000;
 }
-
 .nav-bar a {
   color: #ffffff;
 }
-
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%; 
+  height: 100%; 
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
   justify-content: center;
 }
-
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
@@ -183,7 +161,6 @@ input[type=submit] {
   display: flex;
   flex-direction: column;
 }
-
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -191,7 +168,6 @@ input[type=submit] {
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: #000;
@@ -205,21 +181,17 @@ input[type=submit] {
   border-radius: 5px;
   background-color: #ffffff;
 }
-
 .modal-content li {
   margin-top: 1rem;
 }
-
 /* footer styling */
 footer {
   max-width: 60%;
   margin: 0.5rem auto;
 }
-
 footer li {
   list-style: none;
 }
-
 footer a{
   color: #000000;
   margin: 0 0.5rem;
@@ -227,14 +199,12 @@ footer a{
   font-size: 1.2rem;
   border: 1px solid #ffffff;
 }
-
 footer a:hover {
   border: 1px solid #000000;
   color: #ffffff;
   background-color: #000000;
   border-radius: 5px
 }
-
 footer ul {
   display: flex;  
   justify-content: center;
