@@ -69,8 +69,6 @@ const ansFeedback = document.getElementById('ans-feedback');
 const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
-const gameBoard = document.getElementById('game-board');
-const welcome = document.getElementById('welcome');
 const allAsiaCaps = document.getElementById('all-asia-caps');
 ansInput.addEventListener('focus', function(){
   ansFeedback.innerHTML ='';
@@ -85,7 +83,7 @@ allAsiaCaps.addEventListener('click', function(event){
   ansFeedback.style.border = 'none';
   ansFeedback.style.backgroundColor = '';
   ansSubmit.setAttribute('disabled', 'true');
-  if ((document.getElementsByClassName('options-list-items').length) > 0 && !(ansInput.value.length > 0)) {
+  if ((document.getElementsByClassName('options-list-items').length) > 0 && ansInput.value.length === 0) {
     removeElements();
     allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   } else {
@@ -145,11 +143,11 @@ function populateList(e) {
       document.querySelector('.options-list').appendChild(listItem);
     }
   }
-};
+}
 ansInput.addEventListener('keyup', populateList);
 function displayNames(value) {
   ansInput.value = value;
-  ansSubmit.removeAttribute('disabled')
+  ansSubmit.removeAttribute('disabled');
   removeElements();
 }
 function removeElements() {
@@ -203,7 +201,7 @@ function checkAns (event) {
     ansSubmit.setAttribute('disabled','true');
   } else if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
-    ansFeedback.innerHTML = '<p>Nice one. Correct!</p>'
+    ansFeedback.innerHTML = '<p>Nice one. Correct!</p>';
     ansInput.style.backgroundColor = '#44C167';
     ansFeedback.style.backgroundColor = '#44C167';
     ansInput.style.color = '#000000';
@@ -212,7 +210,7 @@ function checkAns (event) {
     allAsiaCaps.setAttribute('disabled', 'true');
     allAsiaCaps.style.cursor = 'default';
     score ++;
-    scoreCounter.innerHTML = `Score ${score}`
+    scoreCounter.innerHTML = `Score ${score}`;
   } else if (ansInput.value !== Object.values(countryList)[index1]) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
@@ -225,7 +223,7 @@ function checkAns (event) {
     allAsiaCaps.setAttribute('disabled', 'true');
     allAsiaCaps.style.cursor = 'default';
   }
-};
+}
 /**function for next button in the quiz
  * It clears all the content.
  * if we get to the last question, it will delete the last index and run them game function.
@@ -254,12 +252,12 @@ function next (event) {
     allAsiaCaps.removeAttribute('disabled');
     allAsiaCaps.style.cursor = 'pointer';
     runGame(index1);
-  };;
-};
+  }
+}
 //function to randomly generate a country
 function generateCountry (num) { 
     countryQ.innerHTML= Object.keys(countryList)[num];
-};
+}
 // Get the modal
 let modal = document.getElementById("how-to-modal");
 // Get the button that opens the modal
@@ -269,14 +267,14 @@ let span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btnNav.onclick = function() {
   modal.style.display = "flex";
-}
+};
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
