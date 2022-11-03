@@ -109,6 +109,13 @@ allAsiaCaps.addEventListener('click', function(event){
       }
   }
 });
+/** function for generation the autocomplete dropdown options for the guess input field.
+ *  From here down to the the removeElements function, the code is taken and modified from the follwowing tutorial: https://codingartistweb.com/2021/12/autocomplete-suggestions-on-input-field-with-javascript/
+ *  If the user deletes the values in the guess box, the check answer button will be disabled.
+ *  It iterates through all the capital cities and compares them to when the user has typed.
+ *  If the user has matched the first letters of any the cities in the array, those cities will be created as list items and appear to the user.
+ *  The matching letters will also be mad bold.
+ */
 function populateList(e) {
     //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
   removeElements();
@@ -128,6 +135,7 @@ function populateList(e) {
       //One common class name
       listItem.classList.add('options-list-items');
       listItem.style.cursor = 'pointer';
+      //when list item selected, it shows up in the What Do You Think box.
       listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
       //Display matched part in bold
       let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
@@ -218,7 +226,11 @@ function checkAns (event) {
     allAsiaCaps.style.cursor = 'default';
   }
 };
-//function for next button
+/**function for next button in the quiz
+ * It clears all the content.
+ * if we get to the last question, it will delete the last index and run them game function.
+ * Otherwise, it will also add to the question numbers and undisable all the buttons/fields.
+ */
 function next (event) {
   //remove default submit button functionality
   event.preventDefault();
