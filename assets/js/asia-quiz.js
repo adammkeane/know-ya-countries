@@ -164,8 +164,8 @@ function runGame(number) {
   ansSubmit.setAttribute('disabled', 'true');
   if (Object.keys(countryList).length === 0) {
     ansInput.value ='';
-    ansInput.value ='All Done :)';
-    countryQ.innerHTML= 'Finished';
+    ansInput.value ='All-Donez Ville';
+    countryQ.innerHTML= 'Finishedland';
     ansInput.setAttribute('disabled', 'true');
     ansSubmit.setAttribute('disabled', 'true');
     nextButton.setAttribute('disabled', 'true');
