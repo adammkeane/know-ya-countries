@@ -77,6 +77,11 @@ ansInput.addEventListener('focus', function(){
   allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   removeElements();
 });
+ansInput.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    checkAns(event);
+  }
+});
 allAsiaCaps.addEventListener('click', function(event){
   event.preventDefault();
   ansFeedback.innerHTML ='';
@@ -121,6 +126,7 @@ function populateList(e) {
   if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
     ansSubmit.setAttribute('disabled', 'true');
   }
+
   //loop through above array
   for (let i in capitalArray) {
     //convert input to lowercase and compare with each string
