@@ -9,16 +9,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <title>Capitals of Asia - Know Ya Countries</title>
 </head>
 <body>
     <header>
         <nav class="nav-bar">
             <div>
-                <a href="index.html"><h1>Know Ya Countries</h1></a>
+                <a href="index.html" aria-label="Takes user to the homepage."><h1>Know Ya Countries</h1></a>
             </div>
             <div>
-                <a href="index.html"><i class="fa-solid fa-house"></i></a>
-                <p id="modal-btn-nav"><i class="fa-solid fa-question"></i></p>
+                <a href="index.html" aria-label="Takes user to the homepage."><i class="fa-solid fa-house"></i></a>
+                <p id="modal-btn-nav" aria-label="Opens instructions for how to play the game"><i class="fa-solid fa-question"></i></p>
             </div>
         </nav>
     </header>
@@ -36,7 +37,7 @@
                         <label for="capital" class="flex-column"><b>Capital</b></label>
                         <div class="inp-and-btn">
                             <input id="answer" type="text" name="capital" placeholder="What do you think? :)" aria-label="Type here what you think the capital city is.">
-                            <button class="game-box" id="all-asia-caps"><i class="fa-solid fa-caret-down"></i></button>
+                            <button class="game-box" id="all-asia-caps" aria-label="When clicked will show all the options of capital cities to choose from."><i class="fa-solid fa-caret-down"></i></button>
                         </div>
                         
                         <ul class="options-list"></ul>
