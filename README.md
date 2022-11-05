@@ -256,7 +256,7 @@ The following git commands were used throughout development to push code to the 
   - Click 'Save'
   - A live link will be displayed in a green banner when published successfully. 
 
-The live link can be found here - https://adammkeane.github.io/nz-ire-2022/ 
+The live link can be found here - https://adammkeane.github.io/know-ya-countries/index.html
 
 ### Clone the Repository Code Locally
 
