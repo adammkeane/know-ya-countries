@@ -175,6 +175,17 @@ function runGame(number) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Finito.<br>Thanks for playing :)</p>';
     ansFeedback.style.backgroundColor = '#FF85E0';
+    // add replay button at end of the quiz
+    let replayButton = document.createElement('input');
+    replayButton.classList.add('submit-button');
+    replayButton.type = 'submit';
+    replayButton.id = 'replay-btn';
+    replayButton.value = 'Replay';
+    document.querySelector('.submit-buttons').appendChild(replayButton);
+    document.getElementById('replay-btn').addEventListener('click', function(event) {
+      event.preventDefault();
+      location.reload();
+    });
   } else {
     ansInput.focus();
     ansInput.value ='';
