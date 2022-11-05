@@ -202,7 +202,7 @@ Each item opened a new tab when clicked as expected and correct hover color was 
 
 ![Index HTML Test](docs/readme-images/index-w3-html-test.PNG)
 
-![Asia Quiz HTML Test](docs/readme-images/asia-w3-html-test.PNG)
+![Asia Quiz HTML Test](docs/readme-images/asia-quiz-w3-html-test.PNG)
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
