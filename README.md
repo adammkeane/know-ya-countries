@@ -35,12 +35,6 @@ Nav Menu
 
 ![Favicon](docs/readme-images/favicon.PNG)
 
-* Custom 404 Page
-    * A custom 404 page was implemented and will display if a user navigates to a broken link.
-    * A link is also provided back to the website's home page. This allows users to understand what went wrong and get them back to where they want to be.
-
-![404](docs/readme-images/404.PNG)
-
 ### Home Page
 * Game Selection
     * Provides users a selection of games to play.
@@ -208,12 +202,20 @@ Each item opened a new tab when clicked as expected and correct hover color was 
 
 ![Index HTML Test](docs/readme-images/index-w3-html-test.PNG)
 
-![Asia Quiz HTML Test](docs/readme-images/matches-w3-html-test.PNG)
+![Asia Quiz HTML Test](docs/readme-images/asia-w3-html-test.PNG)
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
 
-![CSS Test](docs/readme-images/w3-css-test.PNG)
+![CSS Test](docs/readme-images/w3c-css1.PNG)
+![CSS Test2](docs/readme-images/w3c-css2.PNG)
+
+- JS
+  - No major errors were found when passing through the [JSHint](https://jshint.com/)
+  - The displayNames variable is actually a function that is being called on an onclick attribute, as opposed to a variable. 
+  - I couldn't figue out the warning about the for in loop.
+
+![Javascript Test](docs/readme-images/jshint.PNG)
 
 ### Bugs
 - Flavicon emblem was not showing up on deployed site, but it was showing up on the site generated from the GitPod workspace. From searching online, after being pointed in the right direction by my very helpful mentor, I found that this was caused by using absolute files paths, instead of relative files paths, for my Flavicon images. When changed to relative files paths, the Flavicon emblems did show up when using the deployed site.
