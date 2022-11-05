@@ -50,17 +50,22 @@ let countryList = {
   'Vietnam' : 'Hanoi',
   'Yemen' : "Sana'a"
 };
+
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
+
 //create random numbers between 0 and number of country key indexes
 let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+
+// One page load, runs the game and listens for button clicks
 document.addEventListener("DOMContentLoaded", function() {
   //check users answer
   ansSubmit.addEventListener('click', checkAns);
   nextButton.addEventListener('click', next);
   runGame(index1);
 });
+
 // reference
 const ansInput = document.getElementById('answer');
 const ansSubmit = document.getElementById('submit-button');
@@ -70,6 +75,8 @@ const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
 const allAsiaCaps = document.getElementById('all-asia-caps');
+
+// When focus is put on answer input field, answer feedback is removed and droplist disappears
 ansInput.addEventListener('focus', function(){
   ansFeedback.innerHTML ='';
   ansFeedback.style.border = 'none';
@@ -77,11 +84,15 @@ ansInput.addEventListener('focus', function(){
   allAsiaCaps.innerHTML= '<i class="fa-solid fa-caret-down"></i>';
   removeElements();
 });
+
+// Enter key will activate the check answer function
 ansInput.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     checkAns(event);
   }
 });
+
+// when the dropdown button is clicked, all the potential options appear
 allAsiaCaps.addEventListener('click', function(event){
   event.preventDefault();
   ansFeedback.innerHTML ='';
@@ -112,6 +123,7 @@ allAsiaCaps.addEventListener('click', function(event){
       }
   }
 });
+
 /** function for generation the autocomplete dropdown options for the guess input field.
  *  From here down to the the removeElements function, the code is taken and modified from the follwowing tutorial: https://codingartistweb.com/2021/12/autocomplete-suggestions-on-input-field-with-javascript/
  *  If the user deletes the values in the guess box, the check answer button will be disabled.
@@ -150,12 +162,18 @@ function populateList(e) {
     }
   }
 }
+
+// When user types into answer input field, populate list function will be called
 ansInput.addEventListener('keyup', populateList);
+
+/** Function that will put whatever the value argument is into the answer input field (called in the populate list function)*/
 function displayNames(value) {
   ansInput.value = value;
   ansSubmit.removeAttribute('disabled');
   removeElements();
 }
+
+/** Function to remove the dropdown list from screen */
 function removeElements() {
   //clear all the item
   let items = document.querySelectorAll('.options-list-items');
@@ -163,7 +181,8 @@ function removeElements() {
   item.remove();
   });
 }
-//function to run the game
+
+/** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame(number) {
   ansSubmit.setAttribute('disabled', 'true');
   if (Object.keys(countryList).length === 0) {
@@ -198,6 +217,7 @@ function runGame(number) {
     generateCountry (number);
   }
 }
+
 //function to check users answers
 function checkAns (event) {
   //remove default submit button functionality
@@ -241,6 +261,7 @@ function checkAns (event) {
     allAsiaCaps.style.cursor = 'default';
   }
 }
+
 /**function for next button in the quiz
  * It clears all the content.
  * if we get to the last question, it will delete the last index and run them game function.
@@ -271,24 +292,32 @@ function next (event) {
     runGame(index1);
   }
 }
+
 //function to randomly generate a country
 function generateCountry (num) { 
     countryQ.innerHTML= Object.keys(countryList)[num];
 }
+
+// Modal logic. Used code from https://www.w3schools.com/howto/howto_css_modals.asp
 // Get the modal
 let modal = document.getElementById("how-to-modal");
+
 // Get the button that opens the modal
 let btnNav = document.getElementById("modal-btn-nav");
+
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
+
 // When the user clicks the button, open the modal 
 btnNav.onclick = function() {
   modal.style.display = "flex";
 };
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 };
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
