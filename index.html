@@ -5,45 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- favicon images -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Know Ya Countries</title>
 </head>
 
 <body>
     <header>
         <!-- Navigation Bar -->
-        <nav class="nav-bar">
-            <div>
-                <a href="index.html" aria-label="Takes user to the homepage.">
-                    <h1>Know Ya Countries</h1>
-                </a>
-            </div>
-            <div>
-                <a href="index.html" aria-label="Takes user to the homepage."><i class="fa-solid fa-house"></i></a>
-                <p id="modal-btn-nav"><i class="fa-solid fa-question"></i></p>
-            </div>
-        </nav>
+        <div id="nav-placeholder"></div>
+        <!-- End of Nav Bar -->
     </header>
     <main>
         <!-- Game Selection Section -->
-        <section id="welcome">
+        <section id="welcome" class="container col-lg-4 justify-content-center">
             <div class="flex-column">
-                <h4>Games</h4>
-                <a class="game-box" id="start-asia-capitals" href="asia-capitals.html"><b>Capital Cities of
-                        Asia</b><br><span>(our first game...exciting)</span></a>
-                <a class="game-box" class="game-box" id="start-caribbean-capitals"
-                    href="caribbean-capitals.html"><b>Capital Cities of the Caribbean</b><br><span></span></a>
+                <div class="mb-3 fw-bold">Capitals Quiz</div>
+                <a class="btn btn-outline-dark w-100 mb-2 p-3" id="start-asia-capitals"
+                    href="asia-capitals.html">Asia<br>
+                    <!-- <span>(our first game...exciting)</span> -->
+                </a>
+                <a class="btn btn-outline-dark w-100 p-3" id="start-caribbean-capitals"
+                    href="caribbean-capitals.html">Caribbean<br><span></span></a>
             </div>
             <div class="submit-buttons flex-column">
-                <input type="submit" id="modal-btn" value="How To Play">
+                <input type="submit" class="btn btn-outline-dark w-100 mt-5" value="How To Play" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
             </div>
         </section>
         <!-- How To Modal Section, accessed from nav bar button and the how to play button -->
-        <section id="how-to-modal" class="modal">
+        <!-- <section id="how-to-modal" class="modal fade" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-content">
                 <div class="inp-and-btn">
                     <h2 class="game-box-modal">How To Play</h2>
@@ -62,7 +61,39 @@
                     <li>Enjoy :)</li>
                 </ul>
             </div>
+        </section> -->
+        <!-- Modal -->
+        <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">How To Play</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Put your guess for the capital city into the <b>What Do You Think</b> box.</li>
+                            <li>Your guess can be typed, or selected from the dropdown list.</li>
+                            <li>Either way, your guess much match one of the options from the dropdown list.</li>
+                            <li>If you type the first letter of your guess, the dropdown list automatically will show
+                                you all
+                                the options that start with that letter.</li>
+                            <li>Alternatively, if you want to see all options (every capital city in the region of the
+                                quiz),
+                                click the dropdown arrow to the right of the <b>What Do You Think</b> box.</li>
+                            <li>When you have your guess, click the <b>Check Answer</b> button to get feedback.</li>
+                            <li>When you're ready, click the <b>Next</b> button to bring up the next country.</li>
+                            <li>Enjoy :)</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </section>
+
     </main>
     <!-- social media links in footer. Code used from the Love Running Walkthrough Project (https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/) -->
     <!-- <footer>
@@ -87,6 +118,9 @@
     </footer> -->
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/6b27cf5798.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
     <script src="assets/js/home-page.js"></script>
 </body>
 
