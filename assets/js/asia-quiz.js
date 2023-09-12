@@ -135,8 +135,10 @@ function populateList(e) {
   //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
   removeElements();
   ansSubmit.removeAttribute('disabled');
+  nextButton.setAttribute('disabled', 'true');
   if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
     ansSubmit.setAttribute('disabled', 'true');
+    nextButton.removeAttribute('disabled');
   }
 
   //loop through above array
@@ -170,6 +172,7 @@ ansInput.addEventListener('keyup', populateList);
 function displayNames(value) {
   ansInput.value = value;
   ansSubmit.removeAttribute('disabled');
+  nextButton.setAttribute('disabled', 'true');
   removeElements();
 }
 
@@ -241,6 +244,7 @@ function checkAns(event) {
     ansFeedback.style.backgroundColor = '#EADE06';
     ansInput.value = '';
     ansSubmit.setAttribute('disabled', 'true');
+    nextButton.removeAttribute('disabled');
   } else if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = '<p>Nice one. Correct!</p>';
@@ -253,6 +257,7 @@ function checkAns(event) {
     allAsiaCaps.style.cursor = 'default';
     score++;
     scoreCounter.innerHTML = `Score ${score}`;
+    nextButton.removeAttribute('disabled');
   } else if (ansInput.value !== Object.values(countryList)[index1]) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
@@ -264,6 +269,7 @@ function checkAns(event) {
     ansInput.setAttribute('disabled', 'true');
     allAsiaCaps.setAttribute('disabled', 'true');
     allAsiaCaps.style.cursor = 'default';
+    nextButton.removeAttribute('disabled');
   }
 }
 
