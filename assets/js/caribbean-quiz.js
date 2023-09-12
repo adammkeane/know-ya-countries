@@ -91,7 +91,7 @@ allAsiaCaps.addEventListener('click', function (event) {
       //One common class name
       listItem.classList.add('options-list-items');
       listItem.style.cursor = 'pointer';
-      listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansInput.focus()', allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>');
+      listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansSubmit.focus()', allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>');
       //Display matched part in bold
       let word = sortCapsArray[i];
       //display the value in array
@@ -131,7 +131,7 @@ function populateList(e) {
       listItem.classList.add('options-list-items');
       listItem.style.cursor = 'pointer';
       //when list item selected, it shows up in the What Do You Think box.
-      listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansInput.focus()');
+      listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansSubmit.focus()');
       //Display matched part in bold
       let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
       word += capitalArray[i].substr(ansInput.value.length);
@@ -185,7 +185,7 @@ function runGame(number) {
     let replayButton = document.createElement('input');
     replayButton.classList.add('btn');
     replayButton.classList.add('btn-outline-dark');
-    replayButton.classList.add('mt-2');
+    replayButton.classList.add('mx-2');
     replayButton.classList.add('p-3');
     replayButton.type = 'submit';
     replayButton.id = 'replay-btn';
