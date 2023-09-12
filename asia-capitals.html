@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <title>Capitals of Asia - Know Ya Countries</title>
 </head>
+
 <body>
     <header>
         <nav class="nav-bar">
             <div>
-                <a href="index.html" aria-label="Takes user to the homepage."><h1>Know Ya Countries</h1></a>
+                <a href="index.html" aria-label="Takes user to the homepage.">
+                    <h1>Know Ya Countries</h1>
+                </a>
             </div>
             <div>
                 <a href="index.html" aria-label="Takes user to the homepage."><i class="fa-solid fa-house"></i></a>
@@ -23,7 +27,7 @@
             </div>
         </nav>
     </header>
-    <main>   
+    <main>
         <!-- Game Board Section -->
         <!-- used div instead of section, as the section not having a heading was giving a warning on the w3 validator -->
         <div class="flex-column" id="game-board">
@@ -37,23 +41,26 @@
                     <div class="autocomplete">
                         <label for="answer" class="flex-column"><b>Capital</b></label>
                         <div class="inp-and-btn">
-                            <input id="answer" type="text" name="capital" placeholder="What do you think? :)" aria-label="Type here what you think the capital city is.">
-                            <button class="game-box" id="all-asia-caps" aria-label="When clicked will show all the options of capital cities to choose from."><i class="fa-solid fa-caret-down"></i></button>
+                            <input id="answer" type="text" name="capital" placeholder="What do you think? :)"
+                                aria-label="Type here what you think the capital city is.">
+                            <button class="game-box" id="all-asia-caps"
+                                aria-label="When clicked will show all the options of capital cities to choose from."><i
+                                    class="fa-solid fa-caret-down"></i></button>
                         </div>
-                        
+
                         <ul class="options-list"></ul>
                     </div>
                     <div class="submit-buttons">
-                        <input type="submit" id="submit-button" value="Check Answer" >
+                        <input type="submit" id="submit-button" value="Check Answer">
                         <input type="submit" id="next-button" value="Next">
                     </div>
                 </form>
-            </div> 
-             <!--Score and Question tracking  -->
+            </div>
+            <!--Score and Question tracking  -->
             <div class="flex-row">
                 <div id="score">Score 0</div>
-                <div id="questions-left">Question 1 / 50</div>    
-            </div>  
+                <div id="questions-left">Question 1 / 50</div>
+            </div>
             <!--Where answer feedback will appear  -->
             <div class="flex-column">
                 <div id="ans-feedback"></div>
@@ -65,22 +72,24 @@
                 <div class="inp-and-btn">
                     <h2 class="game-box-modal">How To Play</h2>
                     <span class="close">&times;</span>
-                </div>            
+                </div>
                 <ul>
                     <li>Put your guess for the capital city into the <b>What Do You Think</b> box.</li>
                     <li>Your guess can be typed, or selected from the dropdown list.</li>
                     <li>Either way, your guess much match one of the options from the dropdown list.</li>
-                    <li>If you type the first letter of your guess, the dropdown list automatically will show you all the options that start with that letter.</li>
-                    <li>Alternatively, if you want to see all options (every capital city in the region of the quiz), click the dropdown arrow to the right of the <b>What Do You Think</b> box.</li>
+                    <li>If you type the first letter of your guess, the dropdown list automatically will show you all
+                        the options that start with that letter.</li>
+                    <li>Alternatively, if you want to see all options (every capital city in the region of the quiz),
+                        click the dropdown arrow to the right of the <b>What Do You Think</b> box.</li>
                     <li>When you have your guess, click the <b>Check Answer</b> button to get feedback.</li>
                     <li>When you're ready, click the <b>Next</b> button to bring up the next country.</li>
                     <li>Enjoy :)</li>
                 </ul>
-            </div>    
+            </div>
         </section>
     </main>
-     <!-- social media links in footer. Code used from the Love Running Walkthrough Project (https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/) -->
-    <footer>
+    <!-- social media links in footer. Code used from the Love Running Walkthrough Project (https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/) -->
+    <!-- <footer>
         <ul>
             <li>
                 <a href="https://facebook.com" target="_blank" rel="noopener"
@@ -99,9 +108,10 @@
                     aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram"></i></a>
             </li>
         </ul>
-    </footer>   
+    </footer>    -->
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/6b27cf5798.js" crossorigin="anonymous"></script>
     <script src="assets/js/asia-quiz.js"></script>
 </body>
+
 </html>
