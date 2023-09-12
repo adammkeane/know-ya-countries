@@ -1,54 +1,31 @@
 let countryList = {
-  'Afghanistan': 'Kabul',
-  'Armenia': 'Yerevan',
-  'Azerbaijan': 'Baku',
-  'Bahrain': 'Manama',
-  'Bangladesh': 'Dhaka',
-  'Bhutan': 'Thimphu',
-  'Brunei': 'Bandar Seri Begawan',
-  'Cambodia': 'Phnom Penh',
-  'China': 'Beijing',
-  'Cyprus': 'Nicosia',
-  'Georgia': 'Tbilisi',
-  'India': 'New Dehli',
-  'Indonesia': 'Jakarta',
-  'Iran': 'Tehran',
-  'Iraq': 'Baghdad',
-  'Israel': 'Jerusalem',
-  'Japan': 'Toyko',
-  'Jordan': 'Amman',
-  'Kazakhstan': 'Astana',
-  'Kuwait': 'Kuwait City',
-  'Kyrgyzstan': 'Bishkek',
-  'Laos': 'Vietiane',
-  'Lebanon': 'Beirut',
-  'Malaysia': 'Kuala Lumpur',
-  'Maldives': 'Male',
-  'Mongolia': 'Ulaanbaatar',
-  'Myanmar': 'Naypyidaw',
-  'Nepal': 'Kathmandu',
-  'North Korea': 'Pyongyang',
-  'Oman': 'Muscat',
-  'Pakistan': 'Islamabad',
-  'Palestine': 'Jerusalem',
-  'Philippines': 'Manila',
-  'Qatar': 'Doha',
-  'Russia': 'Moscow',
-  'Saudi Arabia': 'Riyadh',
-  'Singapore': 'Singapore',
-  'South Korea': 'Seoul',
-  'Sri Lanka': 'Sri Jayawardenepura Kotte',
-  'Syria': 'Damascus',
-  'Taiwan': 'Taipei',
-  'Tajikistan': 'Dushanbe',
-  'Thailand': 'Bangkok',
-  'Timor-Leste': 'Dili',
-  'Turkey': 'Ankara',
-  'Turkmenistan': 'Ashgabat',
-  'United Arab Emirates': 'Abu Dhabi',
-  'Uzbekistan': 'Tashkent',
-  'Vietnam': 'Hanoi',
-  'Yemen': "Sana'a"
+  'Anguilla': 'The Valley',
+  'Antigua & Barbuda': "Saint John's",
+  'Aruba': 'Oranjestad',
+  'Bahamas': 'Nassau',
+  'Barbados': 'Bridgetown',
+  'British Virgin Islands': 'Road Town',
+  'Cayman Islands': 'George Town',
+  'Cuba': 'Havana',
+  'Curacao': 'Willemstad',
+  'Dominica': 'Roseau',
+  'Dominican Republic': 'Santo Domingo',
+  'Grenada': "St. George's",
+  'Guadeloupe': 'Basse Terre',
+  'Haiti': 'Port Au Prince',
+  'Jamaica': 'Kingston',
+  'Martinique': 'Fort de France',
+  'Montserrat': 'Plymouth',
+  'Puerto Rico': 'San Juan',
+  'Saint Barthelemy': 'Gustavia',
+  'Saint Kitts & Nevis': 'Basseterre',
+  'Saint Lucia': 'Castries',
+  'Saint Martin': 'Marigot',
+  'Saint Vincent & The Grenadines': 'Kingstown',
+  'Sint Maarten': 'Philipsburg',
+  'Trinidad & Tobago': 'Port of Spain',
+  'Turks & Caicos Islands': 'Cockburn Town',
+  'United States Virgin Islands': 'Charlotte Amalie',
 };
 
 let capitalArray = [...new Set(Object.values(countryList))];
@@ -185,9 +162,7 @@ function removeElements() {
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame(number) {
   ansSubmit.setAttribute('disabled', 'true');
-  // adding the +1 to capital arrays beacuse asia has one dupliacate captial,
-  // which is removed when the array is created.
-  questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
+  questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
   if (Object.keys(countryList).length === 0) {
     ansInput.value = '';
     ansInput.value = 'All-Donez Ville';
@@ -286,9 +261,7 @@ function next(event) {
     delete countryList[Object.keys(countryList)[index1]];
     index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
     questionNumber++;
-    // adding the +1 to capital arrays beacuse asia has one dupliacate captial,
-    // which is removed when the array is created.
-    questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
+    questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
     ansInput.style.backgroundColor = '';
     ansSubmit.removeAttribute('disabled');
     ansInput.removeAttribute('disabled');

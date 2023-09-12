@@ -10,12 +10,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <title>Know Ya Countries</title>
+    <title>Capitals of the Caribbean - Know Ya Countries</title>
 </head>
 
 <body>
     <header>
-        <!-- Navigation Bar -->
         <nav class="nav-bar">
             <div>
                 <a href="index.html" aria-label="Takes user to the homepage.">
@@ -29,20 +28,45 @@
         </nav>
     </header>
     <main>
-        <!-- Game Selection Section -->
-        <section id="welcome">
+        <!-- Game Board Section -->
+        <!-- used div instead of section, as the section not having a heading was giving a warning on the w3 validator -->
+        <div class="flex-column" id="game-board">
+            <!-- Question and Answer fields, including autocomplete dropdown menu -->
             <div class="flex-column">
-                <h4>Games</h4>
-                <a class="game-box" id="start-asia-capitals" href="asia-capitals.html"><b>Capital Cities of
-                        Asia</b><br><span>(our first game...exciting)</span></a>
-                <a class="game-box" class="game-box" id="start-caribbean-capitals"
-                    href="caribbean-capitals.html"><b>Capital Cities of the Caribbean</b><br><span></span></a>
+                <div>
+                    <p><b>Country</b></p>
+                </div>
+                <div id="country" class="game-box"></div>
+                <form autocomplete="off" class="flex-column">
+                    <div class="autocomplete">
+                        <label for="answer" class="flex-column"><b>Capital</b></label>
+                        <div class="inp-and-btn">
+                            <input id="answer" type="text" name="capital" placeholder="What do you think? :)"
+                                aria-label="Type here what you think the capital city is.">
+                            <button class="game-box" id="all-asia-caps"
+                                aria-label="When clicked will show all the options of capital cities to choose from."><i
+                                    class="fa-solid fa-caret-down"></i></button>
+                        </div>
+
+                        <ul class="options-list"></ul>
+                    </div>
+                    <div class="submit-buttons">
+                        <input type="submit" id="submit-button" value="Check Answer">
+                        <input type="submit" id="next-button" value="Next">
+                    </div>
+                </form>
             </div>
-            <div class="submit-buttons flex-column">
-                <input type="submit" id="modal-btn" value="How To Play">
+            <!--Score and Question tracking  -->
+            <div class="flex-row">
+                <div id="score">Score 0</div>
+                <div id="questions-left">Question 1 / 50</div>
             </div>
-        </section>
-        <!-- How To Modal Section, accessed from nav bar button and the how to play button -->
+            <!--Where answer feedback will appear  -->
+            <div class="flex-column">
+                <div id="ans-feedback"></div>
+            </div>
+        </div>
+        <!-- How To Modal Section, accessed from nav bar button -->
         <section id="how-to-modal" class="modal">
             <div class="modal-content">
                 <div class="inp-and-btn">
@@ -87,7 +111,7 @@
     </footer>
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/6b27cf5798.js" crossorigin="anonymous"></script>
-    <script src="assets/js/home-page.js"></script>
+    <script src="assets/js/caribbean-quiz.js"></script>
 </body>
 
 </html>
