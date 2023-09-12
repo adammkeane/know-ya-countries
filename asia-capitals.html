@@ -37,12 +37,13 @@
                 <div>
                     <p><b>Country</b></p>
                 </div>
-                <div id="country" class="game-box"></div>
+                <div id="country" class="game-box p-2"></div>
                 <form autocomplete="off" class="flex-column">
                     <div class="autocomplete">
                         <label for="answer" class="flex-column"><b>Capital</b></label>
                         <div class="inp-and-btn">
-                            <input id="answer" type="text" name="capital" placeholder="What do you think? :)"
+                            <input id="answer" class="p-2" type="text" name="capital"
+                                placeholder="What do you think? :)"
                                 aria-label="Type here what you think the capital city is.">
                             <button class="game-box" id="all-asia-caps"
                                 aria-label="When clicked will show all the options of capital cities to choose from."><i
@@ -52,13 +53,13 @@
                         <ul class="options-list"></ul>
                     </div>
                     <div class="submit-buttons">
-                        <input type="submit" id="submit-button" class="btn btn-outline-dark" value="Check Answer">
-                        <input type="submit" id="next-button" class="btn btn-outline-dark mt-2" value="Next">
+                        <input type="submit" id="submit-button" class="btn btn-outline-dark p-2" value="Check Answer">
+                        <input type="submit" id="next-button" class="btn btn-outline-dark mt-2 p-2" value="Next">
                     </div>
                 </form>
             </div>
             <!--Score and Question tracking  -->
-            <div class="flex-row">
+            <div class="flex-row my-4">
                 <div id="score">Score 0</div>
                 <div id="questions-left">Question 1 / 50</div>
             </div>
