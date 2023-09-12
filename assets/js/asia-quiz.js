@@ -211,7 +211,7 @@ function runGame(number) {
     replayButton.classList.add('btn');
     replayButton.classList.add('btn-outline-dark');
     replayButton.classList.add('mt-2');
-    replayButton.classList.add('p-2');
+    replayButton.classList.add('p-3');
     replayButton.type = 'submit';
     replayButton.id = 'replay-btn';
     replayButton.value = 'Replay';

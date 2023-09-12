@@ -115,7 +115,6 @@ input[type="text"] {
 
 .flex-row {
   text-align: center;
-  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -125,7 +124,6 @@ input[type="text"] {
   padding: 0.7rem;
   outline: none;
   border-radius: 5px;
-  width: 50vw;
   text-align: center;
 }
 
@@ -192,7 +190,7 @@ footer ul {
 }
 
 /* Media Queries */
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
 
   #score,
   #questions-left {
@@ -215,9 +213,9 @@ footer ul {
   #ans-feedback {
     width: 30vw;
   }
-}
+} */
 
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) {
   input[type=submit] {
     width: 20vw;
   }
@@ -234,4 +232,4 @@ footer ul {
   #ans-feedback {
     width: 20vw;
   }
-}
+} */
