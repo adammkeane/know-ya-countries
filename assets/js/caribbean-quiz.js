@@ -180,7 +180,9 @@ function runGame(number) {
     ansFeedback.style.backgroundColor = '#FF85E0';
     // add replay button at end of the quiz
     let replayButton = document.createElement('input');
-    replayButton.classList.add('submit-button');
+    replayButton.classList.add('btn');
+    replayButton.classList.add('btn-outline-dark');
+    replayButton.classList.add('mt-2');
     replayButton.type = 'submit';
     replayButton.id = 'replay-btn';
     replayButton.value = 'Replay';
