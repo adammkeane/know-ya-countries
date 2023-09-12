@@ -21,6 +21,11 @@
     <header>
         <!-- Navigation Bar -->
         <div id="nav-placeholder"></div>
+        <script>
+            $(function () {
+                $("#nav-placeholder").load("nav.html");
+            });
+        </script>
         <!-- End of Nav Bar -->
     </header>
     <main>
@@ -68,8 +73,9 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">How To Play</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5 px-3" id="exampleModalLabel">How To Play</h1>
+                        <button type="button" class="btn-close px-3" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <ul>
