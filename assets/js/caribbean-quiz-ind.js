@@ -182,7 +182,7 @@ function runGame(number) {
       location.reload();
     });
   } else {
-    ansInput.focus();
+    // ansInput.focus();
     ansInput.value = '';
     generateCountry(number);
   }
