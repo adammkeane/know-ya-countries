@@ -6,7 +6,7 @@ let countryList = {
   'Dominica': 'Roseau',
   'Dominican Republic': 'Santo Domingo',
   'Grenada': "St. George's",
-  'Haiti': 'Port Au Prince',
+  'Haiti': 'Port au Prince',
   'Jamaica': 'Kingston',
   'Saint Kitts & Nevis': 'Basseterre',
   'Saint Lucia': 'Castries',
