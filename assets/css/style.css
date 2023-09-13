@@ -30,7 +30,7 @@ body {
 
 .autocomplete label,
 p {
-  margin: 0.2rem 0;
+  margin-bottom: 0.2rem;
 }
 
 form,
