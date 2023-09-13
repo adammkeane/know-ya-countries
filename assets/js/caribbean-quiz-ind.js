@@ -48,10 +48,42 @@ ansInput.addEventListener('focus', function () {
   removeElements();
 });
 
+// make ansInput untypable. when clicked, it just brings up the options list
+ansInput.addEventListener('click', function (e) {
+  e.preventDefault();
+  ansFeedback.innerHTML = '';
+  ansFeedback.style.border = 'none';
+  ansFeedback.style.backgroundColor = '';
+  ansSubmit.setAttribute('disabled', 'true');
+  if ((document.getElementsByClassName('options-list-items').length) > 0 && ansInput.value.length === 0) {
+    removeElements();
+    allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+  } else {
+    allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>';
+    removeElements();
+    ansInput.value = '';
+    //loop through above array
+    let sortCapsArray = capitalArray.sort();
+    for (let i in sortCapsArray) {
+      //create li element
+      let listItem = document.createElement('li');
+      //One common class name
+      listItem.classList.add('options-list-items');
+      listItem.style.cursor = 'pointer';
+      listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansSubmit.focus()', allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>');
+      //Display matched part in bold
+      let word = sortCapsArray[i];
+      //display the value in array
+      listItem.innerHTML = word;
+      document.querySelector('.options-list').appendChild(listItem);
+    }
+  }
+});
+
 // Enter key will activate the check answer function
 ansInput.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
-    checkAns(event);
+    checkAns(e);
   }
 });
 
@@ -133,6 +165,7 @@ ansInput.addEventListener('keyup', populateList);
 
 /** Function that will put whatever the value argument is into the answer input field (called in the populate list function)*/
 function displayNames(value) {
+  allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
   ansInput.value = value;
   ansSubmit.removeAttribute('disabled');
   nextButton.setAttribute('disabled', 'true');
@@ -182,7 +215,7 @@ function runGame(number) {
       location.reload();
     });
   } else {
-    // ansInput.focus();
+    allAsiaCaps.focus();
     ansInput.value = '';
     generateCountry(number);
   }
@@ -220,6 +253,7 @@ function checkAns(event) {
     score++;
     scoreCounter.innerHTML = `Score ${score}`;
     nextButton.removeAttribute('disabled');
+    nextButton.focus();
   } else if (ansInput.value !== Object.values(countryList)[index1]) {
     ansFeedback.style.border = '1px solid #000000';
     ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
@@ -232,6 +266,7 @@ function checkAns(event) {
     allAsiaCaps.setAttribute('disabled', 'true');
     allAsiaCaps.style.cursor = 'default';
     nextButton.removeAttribute('disabled');
+    nextButton.focus();
   }
 }
 

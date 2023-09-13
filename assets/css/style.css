@@ -33,6 +33,10 @@ p {
   margin-bottom: 0.2rem;
 }
 
+#answer:hover {
+  cursor: pointer;
+}
+
 form,
 .flex-row,
 #ans-feedback,
