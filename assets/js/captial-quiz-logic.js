@@ -23,17 +23,8 @@ const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
 const allAsiaCaps = document.getElementById('all-asia-caps');
 
-// When focus is put on answer input field, answer feedback is removed and droplist disappears
-ansInput.addEventListener('focus', function () {
-    ansFeedback.innerHTML = '';
-    ansFeedback.style.border = 'none';
-    ansFeedback.style.backgroundColor = '';
-    allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
-    removeElements();
-});
-
-// make ansInput untypable. when clicked, it just brings up the options list
-ansInput.addEventListener('click', function (e) {
+// function for opening dropdown list
+function dropdownList(e) {
     e.preventDefault();
     ansFeedback.innerHTML = '';
     ansFeedback.style.border = 'none';
@@ -62,7 +53,12 @@ ansInput.addEventListener('click', function (e) {
             document.querySelector('.options-list').appendChild(listItem);
         }
     }
-});
+}
+
+// make ansInput untypable. when clicked, it just brings up the options list
+ansInput.addEventListener('click', dropdownList);
+// when the dropdown button is clicked, all the potential options appear
+allAsiaCaps.addEventListener('click', dropdownList);
 
 // Enter key will activate the check answer function
 ansInput.addEventListener('keypress', function (e) {
@@ -71,83 +67,7 @@ ansInput.addEventListener('keypress', function (e) {
     }
 });
 
-// when the dropdown button is clicked, all the potential options appear
-allAsiaCaps.addEventListener('click', function (event) {
-    event.preventDefault();
-    ansFeedback.innerHTML = '';
-    ansFeedback.style.border = 'none';
-    ansFeedback.style.backgroundColor = '';
-    ansSubmit.setAttribute('disabled', 'true');
-    if ((document.getElementsByClassName('options-list-items').length) > 0 && ansInput.value.length === 0) {
-        removeElements();
-        allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
-    } else {
-        allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>';
-        removeElements();
-        ansInput.value = '';
-        //loop through above array
-        let sortCapsArray = capitalArray.sort();
-        for (let i in sortCapsArray) {
-            //create li element
-            let listItem = document.createElement('li');
-            //One common class name
-            listItem.classList.add('options-list-items');
-            listItem.style.cursor = 'pointer';
-            listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansSubmit.focus()', allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>');
-            //Display matched part in bold
-            let word = sortCapsArray[i];
-            //display the value in array
-            listItem.innerHTML = word;
-            document.querySelector('.options-list').appendChild(listItem);
-        }
-    }
-});
-
-/** function for generation the autocomplete dropdown options for the guess input field.
- *  From here down to the the removeElements function, the code is taken and modified from the follwowing tutorial: https://codingartistweb.com/2021/12/autocomplete-suggestions-on-input-field-with-javascript/
- *  If the user deletes the values in the guess box, the check answer button will be disabled.
- *  It iterates through all the capital cities and compares them to when the user has typed.
- *  If the user has matched the first letters of any the cities in the array, those cities will be created as list items and appear to the user.
- *  The matching letters will also be mad bold.
- */
-function populateList(e) {
-    //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
-    removeElements();
-    ansSubmit.removeAttribute('disabled');
-    nextButton.setAttribute('disabled', 'true');
-    if ((e.key === 'Backspace' || e.key === 'Delete') && ansInput.value.length === 0) {
-        ansSubmit.setAttribute('disabled', 'true');
-        nextButton.removeAttribute('disabled');
-    }
-
-    //loop through above array
-    for (let i in capitalArray) {
-        //convert input to lowercase and compare with each string
-        if (
-            capitalArray[i].toLowerCase().startsWith(ansInput.value.toLowerCase()) &&
-            ansInput.value !== ''
-        ) {
-            //create li element
-            let listItem = document.createElement('li');
-            //One common class name
-            listItem.classList.add('options-list-items');
-            listItem.style.cursor = 'pointer';
-            //when list item selected, it shows up in the What Do You Think box.
-            listItem.setAttribute('onclick', 'displayNames("' + capitalArray[i] + '"), ansSubmit.focus()');
-            //Display matched part in bold
-            let word = '<b>' + capitalArray[i].substr(0, ansInput.value.length) + '</b>';
-            word += capitalArray[i].substr(ansInput.value.length);
-            //display the value in array
-            listItem.innerHTML = word;
-            document.querySelector('.options-list').appendChild(listItem);
-        }
-    }
-}
-
-// When user types into answer input field, populate list function will be called
-ansInput.addEventListener('keyup', populateList);
-
-/** Function that will put whatever the value argument is into the answer input field (called in the populate list function)*/
+/** Function that puts option selected from dropdown list into the answer field*/
 function displayNames(value) {
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
     ansInput.value = value;
