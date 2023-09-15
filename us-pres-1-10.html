@@ -70,32 +70,12 @@
             </div>
         </div>
         <!-- Modal -->
-        <section class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5 px-3" id="exampleModalLabel">How To Play</h1>
-                        <button type="button" class="btn-close px-3" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body pb-1">
-                        <ul class="mt-2">
-                            <li class="mb-2">Click the <b>What Do You Think</b> box to see your options.</li>
-                            <li class="mb-2">Pick your answer.</li>
-                            <li class="mb-2">Click the <b>Check Answer</b> button to get
-                                feedback.</li>
-                            <li class="mb-2">When you're ready, click the <b>Next</b> button to bring up the next
-                                question.</li>
-                            <li>Enjoy :)</li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="modal-placeholder"></section>
+        <script>
+            $(function () {
+                $("#modal-placeholder").load("modal.html");
+            });
+        </script>
     </main>
     <!-- social media links in footer. Code used from the Love Running Walkthrough Project (https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/) -->
     <!-- <footer>
