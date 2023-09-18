@@ -49,7 +49,6 @@ form,
   margin: 0 1rem 0.5rem 1rem;
 }
 
-#welcome #start-asia-capitals:hover,
 #modal-btn-nav {
   cursor: pointer;
 }
@@ -83,10 +82,10 @@ input[type="text"] {
   margin: 0.5rem;
 } */
 
-.submit-buttons {
+/* .submit-buttons {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .options-list {
   width: 100%;
