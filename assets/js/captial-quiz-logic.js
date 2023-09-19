@@ -113,7 +113,7 @@ function runGame(number) {
         replayButton.type = 'submit';
         replayButton.id = 'replay-btn';
         replayButton.value = 'Replay';
-        document.querySelector('.submit-buttons').appendChild(replayButton);
+        document.querySelector('.end-quiz-btns').appendChild(replayButton);
         document.getElementById('replay-btn').addEventListener('click', function (event) {
             event.preventDefault();
             location.reload();
