@@ -236,3 +236,7 @@ footer ul {
     width: 20vw;
   }
 } */
+
+img {
+  filter: invert(11%) sepia(14%) saturate(523%) hue-rotate(168deg) brightness(99%) contrast(91%);
+}

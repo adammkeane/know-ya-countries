@@ -207,5 +207,5 @@ function next(event) {
 
 //function to randomly generate a country
 function generateCountry(num) {
-    countryQ.innerHTML = Object.keys(countryList)[num];
+    countryQ.innerHTML = `<img src="assets/images/country-shapes/${Object.keys(countryList)[num]}" class="img-fluid">`;
 }
