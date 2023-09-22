@@ -88,7 +88,11 @@ function removeElements() {
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame(number) {
     ansSubmit.setAttribute('disabled', 'true');
-    questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
+    if (capitalArray.includes("Jerusalem")) {
+        questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
+    } else {
+        questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
+    }
     if (Object.keys(countryList).length === 0) {
         ansInput.value = '';
         ansInput.value = 'All-Donez Ville';
