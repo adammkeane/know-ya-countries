@@ -113,7 +113,7 @@ function runGame(number) {
         ansInput.style.backgroundColor = '#FF85E0';
         countryQ.style.backgroundColor = '#FF85E0';
         ansFeedback.style.border = '1px solid #000000';
-        ansFeedback.innerHTML = `<p><b>${score}/${capitalArray.length} Correct</b>
+        ansFeedback.innerHTML = `<p>Score: <b>${score}/${capitalArray.length}</b>
                                     </p><p>Thanks for playing :)</p>`;
         ansFeedback.style.backgroundColor = '#FF85E0';
         // add replay button at end of the quiz
