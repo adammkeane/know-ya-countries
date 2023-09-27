@@ -28,7 +28,7 @@ gameBoard.innerHTML = `<!-- Question and Answer fields, including autocomplete d
     </form>
 </div>
 <!--Score and Question tracking  -->
-<div class="flex-row my-4">
+<div id="counters" class="flex-row my-4">
     <div id="score" class="mx-2">Score 0</div>
     <div id="questions-left" class="mx-2"></div>
 </div>

@@ -22,6 +22,7 @@ const nextButton = document.getElementById('next-button');
 const scoreCounter = document.getElementById('score');
 const questionsLeft = document.getElementById('questions-left');
 const allAsiaCaps = document.getElementById('all-asia-caps');
+const counters = document.getElementById('counters');
 
 // function for opening dropdown list
 function dropdownList(e) {
@@ -105,8 +106,7 @@ function runGame(number) {
         ansInput.setAttribute('disabled', 'true');
         ansSubmit.style.display = 'none';
         nextButton.style.display = 'none';
-        scoreCounter.style.display = 'none';
-        questionsLeft.style.display = 'none';
+        counters.style.display = 'none';
         allAsiaCaps.setAttribute('disabled', 'true');
         allAsiaCaps.style.cursor = 'default';
         ansInput.style.color = '#000000';
@@ -121,6 +121,7 @@ function runGame(number) {
         replayButton.classList.add('btn');
         replayButton.classList.add('btn-outline-dark');
         replayButton.classList.add('mx-2');
+        replayButton.classList.add('mb-4');
         replayButton.classList.add('p-3');
         replayButton.type = 'submit';
         replayButton.id = 'replay-btn';
