@@ -18,3 +18,5 @@ let countryList = {
   'United Arab Emirates': 'Abu Dhabi',
   'Yemen': "Sana'a"
 };
+
+let capital = true;

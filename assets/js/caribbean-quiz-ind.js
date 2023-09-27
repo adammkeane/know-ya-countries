@@ -13,3 +13,5 @@ let countryList = {
   'Saint Vincent & The Grenadines': 'Kingstown',
   'Trinidad & Tobago': 'Port of Spain',
 };
+
+let capital = true;

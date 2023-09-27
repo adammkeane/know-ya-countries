@@ -10,3 +10,7 @@ let countryList = {
   '9 (March 1841 - April 1841)': 'William Henry Harrison',
   '10 (April 1841 - March 1845)': 'John Tyler',
 };
+
+let capital = false;
+let end1 = 'Dick Tator';
+let end2 = '999 (2500 - ∞)';

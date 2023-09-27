@@ -17,3 +17,5 @@ let countryList = {
   'Timor-Leste': 'Dili',
   'Vietnam': 'Hanoi',
 };
+
+let capital = true;

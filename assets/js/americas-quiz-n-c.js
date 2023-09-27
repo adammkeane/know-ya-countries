@@ -10,3 +10,6 @@ let countryList = {
   'Panama': 'Panama City',
   'United States': 'Washington D.C.',
 };
+
+
+let capital = true;

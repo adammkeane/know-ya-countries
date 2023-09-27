@@ -14,3 +14,5 @@ let countryList = {
   'Turkmenistan': 'Ashgabat',
   'Uzbekistan': 'Tashkent',
 };
+
+let capital = true;

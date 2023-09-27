@@ -95,18 +95,26 @@ function runGame(number) {
     }
     if (Object.keys(countryList).length === 0) {
         ansInput.value = '';
-        ansInput.value = 'All-Donez Ville';
-        countryQ.innerHTML = 'Finishedland';
+        if (capital == true) {
+            ansInput.value = 'All-Donez Ville';
+            countryQ.innerHTML = 'Finishedland';
+        } else {
+            ansInput.value = end1;
+            countryQ.innerHTML = end2;
+        }
         ansInput.setAttribute('disabled', 'true');
-        ansSubmit.setAttribute('disabled', 'true');
-        nextButton.setAttribute('disabled', 'true');
+        ansSubmit.style.display = 'none';
+        nextButton.style.display = 'none';
+        scoreCounter.style.display = 'none';
+        questionsLeft.style.display = 'none';
         allAsiaCaps.setAttribute('disabled', 'true');
         allAsiaCaps.style.cursor = 'default';
         ansInput.style.color = '#000000';
         ansInput.style.backgroundColor = '#FF85E0';
         countryQ.style.backgroundColor = '#FF85E0';
         ansFeedback.style.border = '1px solid #000000';
-        ansFeedback.innerHTML = '<p>Finito.<br>Thanks for playing :)</p>';
+        ansFeedback.innerHTML = `<p><b>${score}/${capitalArray.length} Correct</b>
+                                    </p><p>Thanks for playing :)</p>`;
         ansFeedback.style.backgroundColor = '#FF85E0';
         // add replay button at end of the quiz
         let replayButton = document.createElement('input');
