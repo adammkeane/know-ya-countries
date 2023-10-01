@@ -13,5 +13,4 @@ let countryList = {
   'Venezuala': 'Caracas',
 };
 
-
 let capital = true;
