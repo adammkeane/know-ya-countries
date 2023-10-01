@@ -1,6 +1,6 @@
 let countryList = {
   'Argentina': "Buenos Aires",
-  'Bolivia': 'Sucre',
+  'Bolivia': 'Sucre/La Paz',
   'Brazil': 'Brasília',
   'Chile': 'Santiago',
   'Columbia': 'Bogotá',
