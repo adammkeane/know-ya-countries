@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // reference
-const ansInput = document.getElementById('answer');
-const ansSubmit = document.getElementById('submit-button');
-const countryQ = document.getElementById('country');
-const ansFeedback = document.getElementById('ans-feedback');
-const nextButton = document.getElementById('next-button');
-const scoreCounter = document.getElementById('score');
-const questionsLeft = document.getElementById('questions-left');
-const allAsiaCaps = document.getElementById('all-asia-caps');
-const counters = document.getElementById('counters');
+const ansInput = document.querySelector('#answer');
+const ansSubmit = document.querySelector('#submit-button');
+const countryQ = document.querySelector('#country');
+const ansFeedback = document.querySelector('#ans-feedback');
+const nextButton = document.querySelector('#next-button');
+const scoreCounter = document.querySelector('#score');
+const questionsLeft = document.querySelector('#questions-left');
+const allAsiaCaps = document.querySelector('#all-asia-caps');
+const counters = document.querySelector('#counters');
 
 // function for opening dropdown list
 function dropdownList(e) {
@@ -31,7 +31,7 @@ function dropdownList(e) {
     ansFeedback.style.border = 'none';
     ansFeedback.style.backgroundColor = '';
     ansSubmit.setAttribute('disabled', 'true');
-    if ((document.getElementsByClassName('options-list-items').length) > 0 && ansInput.value.length === 0) {
+    if ((document.querySelectorAll('.options-list-items').length) > 0 && ansInput.value.length === 0) {
         removeElements();
         allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
     } else {
@@ -51,7 +51,7 @@ function dropdownList(e) {
             let word = sortCapsArray[i];
             //display the value in array
             listItem.innerHTML = word;
-            document.querySelector('.options-list').appendChild(listItem);
+            document.querySelector('.options-list').append(listItem);
         }
     }
 }
@@ -64,7 +64,7 @@ allAsiaCaps.addEventListener('click', dropdownList);
 // Enter key will activate the check answer function
 ansInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        checkAns(e);
+        checkAns();
     }
 });
 
@@ -126,8 +126,8 @@ function runGame(number) {
         replayButton.type = 'submit';
         replayButton.id = 'replay-btn';
         replayButton.value = 'Replay';
-        document.querySelector('.end-quiz-btns').appendChild(replayButton);
-        document.getElementById('replay-btn').addEventListener('click', function (event) {
+        document.querySelector('.end-quiz-btns').append(replayButton);
+        document.querySelector('#replay-btn').addEventListener('click', function (event) {
             event.preventDefault();
             location.reload();
         });
