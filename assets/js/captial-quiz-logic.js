@@ -5,6 +5,10 @@ let score = 0;
 //create random numbers between 0 and number of country key indexes
 let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
 
+function randomIndex() {
+    return Math.floor(Math.random() * (Object.keys(countryList).length));
+}
+
 // One page load, runs the game and listens for button clicks
 document.addEventListener("DOMContentLoaded", function () {
     //check users answer
