@@ -1,22 +1,3 @@
-let capitalArray = [...new Set(Object.values(countryList))];
-let questionNumber = 1;
-let score = 0;
-
-//create random numbers between 0 and number of country key indexes
-let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-
-function randomIndex() {
-    return Math.floor(Math.random() * (Object.keys(countryList).length));
-}
-
-// One page load, runs the game and listens for button clicks
-document.addEventListener("DOMContentLoaded", function () {
-    //check users answer
-    ansSubmit.addEventListener('click', checkAns);
-    nextButton.addEventListener('click', next);
-    runGame(index1);
-});
-
 // reference
 const ansInput = document.querySelector('#answer');
 const ansSubmit = document.querySelector('#submit-button');
@@ -27,6 +8,38 @@ const scoreCounter = document.querySelector('#score');
 const questionsLeft = document.querySelector('#questions-left');
 const allAsiaCaps = document.querySelector('#all-asia-caps');
 const counters = document.querySelector('#counters');
+
+let capitalArray = [...new Set(Object.values(countryList))];
+let questionNumber = 1;
+let score = 0;
+
+//create random numbers between 0 and number of country key indexes
+// this variable will be updated for each new question
+let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+
+function randomIndex() {
+    return Math.floor(Math.random() * (Object.keys(countryList).length));
+}
+
+//function to randomly generate a country,
+// put focus on the dropdown button for all capitals, and
+// clear the answer input element
+function generateCountry(num) {
+    countryQ.innerHTML = Object.keys(countryList)[num];
+    allAsiaCaps.focus();
+    ansInput.value = '';
+}
+
+// One page load, runs the game and listens for button clicks
+document.addEventListener("DOMContentLoaded", function () {
+    //check users answer
+    ansSubmit.addEventListener('click', checkAns);
+    nextButton.addEventListener('click', next);
+    generateCountry(index1);
+    runGame();
+});
+
+
 
 // function for opening dropdown list
 function dropdownList(e) {
@@ -91,7 +104,7 @@ function removeElements() {
 }
 
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
-function runGame(number) {
+function runGame() {
     ansSubmit.setAttribute('disabled', 'true');
     if (capitalArray.includes("Jerusalem")) {
         questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
@@ -135,10 +148,6 @@ function runGame(number) {
             event.preventDefault();
             location.reload();
         });
-    } else {
-        allAsiaCaps.focus();
-        ansInput.value = '';
-        generateCountry(number);
     }
 }
 
@@ -147,21 +156,8 @@ function checkAns(event) {
     //remove default submit button functionality
     event.preventDefault();
     ansFeedback.style.backgroundColor = '';
-    //only allow real capital cities from the object as options and check if answer correct.
-    if (!(Object.values(capitalArray).includes(ansInput.value))) {
-        removeElements();
-        ansFeedback.style.border = '1px solid #000000';
-        ansFeedback.innerHTML = `
-    <p>Sorry, not a valid guess.</p>
-    <p>Guess must match an option from the dropdown list.</p>
-    <p>If you type the first letter of your guess, the dropdown list will automatically show all the options that start with that letter.</p>
-    <p>Alternatively, if you want to see all options (every capital city in the region of the quiz), click the dropdown arrow to the right of the <b>What Do You Think</b> box.</p>
-    `;
-        ansFeedback.style.backgroundColor = '#EADE06';
-        ansInput.value = '';
-        ansSubmit.setAttribute('disabled', 'true');
-        nextButton.removeAttribute('disabled');
-    } else if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
+    //check if answer correct.
+    if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
         ansFeedback.style.border = '1px solid #000000';
         ansFeedback.innerHTML = '<p>Nice one. Correct!</p>';
         ansInput.style.backgroundColor = '#44C167';
@@ -207,7 +203,8 @@ function next(event) {
     if (Object.keys(countryList).length === 1) {
         delete countryList[Object.keys(countryList)[index1]];
         index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-        runGame(index1);
+        generateCountry(index1);
+        runGame();
     } else {
         delete countryList[Object.keys(countryList)[index1]];
         index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
@@ -218,11 +215,7 @@ function next(event) {
         ansInput.removeAttribute('disabled');
         allAsiaCaps.removeAttribute('disabled');
         allAsiaCaps.style.cursor = 'pointer';
-        runGame(index1);
+        generateCountry(index1);
+        runGame();
     }
-}
-
-//function to randomly generate a country
-function generateCountry(num) {
-    countryQ.innerHTML = Object.keys(countryList)[num];
 }
