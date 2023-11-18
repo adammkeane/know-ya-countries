@@ -17,7 +17,7 @@ let score = 0;
 function randomIndex() {
     return Math.floor(Math.random() * (Object.keys(countryList).length));
 }
-// create variable with return value
+// create variable with the return value of randomIndex()
 let index1 = randomIndex();
 
 //function to randomly generate a country,
