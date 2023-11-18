@@ -13,13 +13,12 @@ let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
 
-//create random numbers between 0 and number of country key indexes
-// this variable will be updated for each new question
-let index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
-
+//creates random numbers between 0 and number of country key indexes
 function randomIndex() {
     return Math.floor(Math.random() * (Object.keys(countryList).length));
 }
+// create variable with return value
+let index1 = randomIndex();
 
 //function to randomly generate a country,
 // put focus on the dropdown button for all capitals, and
@@ -202,12 +201,12 @@ function next(event) {
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
     if (Object.keys(countryList).length === 1) {
         delete countryList[Object.keys(countryList)[index1]];
-        index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+        index1 = randomIndex();
         generateCountry(index1);
         runGame();
     } else {
         delete countryList[Object.keys(countryList)[index1]];
-        index1 = Math.floor(Math.random() * (Object.keys(countryList).length));
+        index1 = randomIndex();
         questionNumber++;
         questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
         ansInput.style.backgroundColor = '';
