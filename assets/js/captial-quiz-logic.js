@@ -47,27 +47,34 @@ function dropdownList(e) {
     ansFeedback.style.border = 'none';
     ansFeedback.style.backgroundColor = '';
     ansSubmit.setAttribute('disabled', 'true');
-    if ((document.querySelectorAll('.options-list-items').length) > 0 && ansInput.value.length === 0) {
+    // if the dropdown list is open
+    if ((document.querySelectorAll('.options-list-items').length) > 0) {
         removeElements();
         allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
     } else {
+        // else show dropdown list of all capital options in alphabetical order
         allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>';
         removeElements();
         ansInput.value = '';
-        //loop through above array
         let sortCapsArray = capitalArray.sort();
+        // loops through alphabetically sorted capital array and adds each as a list item to the DOM
         for (let i in sortCapsArray) {
             //create li element
             let listItem = document.createElement('li');
             //One common class name
             listItem.classList.add('options-list-items');
             listItem.style.cursor = 'pointer';
-            listItem.setAttribute('onclick', 'displayNames("' + sortCapsArray[i] + '"), ansSubmit.focus()', allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-up"></i>');
-            //Display matched part in bold
-            let word = sortCapsArray[i];
-            //display the value in array
-            listItem.innerHTML = word;
+            // add captial to the list element and append it to the list
+            listItem.innerHTML = sortCapsArray[i];
             document.querySelector('.options-list').append(listItem);
+        }
+        // add an event listener to each capital option which will call display names
+        const items = document.querySelectorAll('.options-list-items');
+        for (item of items) {
+            const capital = item.innerText;
+            item.addEventListener('click', () => {
+                displayNames(capital);
+            })
         }
     }
 }
@@ -90,6 +97,7 @@ function displayNames(value) {
     ansInput.value = value;
     ansSubmit.removeAttribute('disabled');
     nextButton.setAttribute('disabled', 'true');
+    ansSubmit.focus();
     removeElements();
 }
 
