@@ -30,7 +30,7 @@ function generateCountry(num) {
 }
 
 // One page load, runs the game and listens for button clicks
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     //check users answer
     ansSubmit.addEventListener('click', checkAns);
     nextButton.addEventListener('click', next);
@@ -105,7 +105,7 @@ function removeElements() {
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame() {
     ansSubmit.setAttribute('disabled', 'true');
-    if (capitalArray.includes("Jerusalem")) {
+    if (capitalArray.includes('Jerusalem')) {
         questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
     } else {
         questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
