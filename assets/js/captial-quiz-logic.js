@@ -12,6 +12,7 @@ const counters = document.querySelector('#counters');
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
+let answers = [];
 
 //creates random numbers between 0 and number of country key indexes
 function randomIndex() {
@@ -113,11 +114,12 @@ function removeElements() {
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame() {
     ansSubmit.setAttribute('disabled', 'true');
+    let totalQs = capitalArray.length;
     if (capitalArray.includes('Jerusalem')) {
-        questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length + 1}`;
-    } else {
-        questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
+        totalQs++;
     }
+    questionsLeft.innerHTML = `Question ${questionNumber} / ${totalQs}`;
+
     if (Object.keys(countryList).length === 0) {
         ansInput.value = '';
         if (capital == true) {
@@ -137,7 +139,7 @@ function runGame() {
         ansInput.style.backgroundColor = '#FF85E0';
         countryQ.style.backgroundColor = '#FF85E0';
         ansFeedback.style.border = '1px solid #000000';
-        ansFeedback.innerHTML = `<p>Score: <b>${score}/${capitalArray.length}</b>
+        ansFeedback.innerHTML = `<p>Score: <b>${score}/${totalQs}</b>
                                     </p><p>Thanks for playing :)</p>`;
         ansFeedback.style.backgroundColor = '#FF85E0';
         // add replay button at end of the quiz
@@ -160,11 +162,11 @@ function runGame() {
 
 //function to check users answers
 function checkAns(event) {
-    //remove default submit button functionality
+    // remove default submit button functionality
     event.preventDefault();
     ansFeedback.style.backgroundColor = '';
     //check if answer correct.
-    if (ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')) {
+    if (ansInput.value === Object.values(countryList)[index1]) {
         ansFeedback.style.border = '1px solid #000000';
         ansFeedback.innerHTML = '<p>Nice one. Correct!</p>';
         ansInput.style.backgroundColor = '#44C167';
@@ -192,6 +194,7 @@ function checkAns(event) {
         nextButton.removeAttribute('disabled');
         nextButton.focus();
     }
+
 }
 
 /**function for next button in the quiz
@@ -207,6 +210,13 @@ function next(event) {
     ansFeedback.style.backgroundColor = '';
     ansFeedback.innerHTML = '';
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+    // save answer data to answers array
+    answers.push({
+        country: countryQ.innerHTML,
+        answer: ansInput.value,
+        correctAnswer: Object.values(countryList)[index1],
+        userCorrect: ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')
+    });
     if (Object.keys(countryList).length === 1) {
         delete countryList[Object.keys(countryList)[index1]];
         index1 = randomIndex();
