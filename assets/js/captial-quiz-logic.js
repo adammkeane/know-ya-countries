@@ -210,23 +210,24 @@ function next(event) {
     ansFeedback.style.backgroundColor = '';
     ansFeedback.innerHTML = '';
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
-    // save answer data to answers array
+    // save answer data to answers array as an object element
     answers.push({
         country: countryQ.innerHTML,
         answer: ansInput.value,
         correctAnswer: Object.values(countryList)[index1],
         userCorrect: ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')
     });
+    // if it's the last question, less things need to be done
     if (Object.keys(countryList).length === 1) {
         delete countryList[Object.keys(countryList)[index1]];
         index1 = randomIndex();
         generateCountry(index1);
         runGame();
     } else {
+        // if not last questsion, do the following
         delete countryList[Object.keys(countryList)[index1]];
         index1 = randomIndex();
         questionNumber++;
-        questionsLeft.innerHTML = `Question ${questionNumber} / ${capitalArray.length}`;
         ansInput.style.backgroundColor = '';
         ansSubmit.removeAttribute('disabled');
         ansInput.removeAttribute('disabled');
