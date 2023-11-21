@@ -217,14 +217,18 @@ function next(event) {
         correctAnswer: Object.values(countryList)[index1],
         userCorrect: ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')
     });
-    // if it's the last question, less things need to be done
+    // next button will re enable disabled DOM elements,
+    // delete the current country from the countryList object, 
+    // increment question number, pick a new random index,
+    // and run the game again.
+    // If it's the last question, less things need to be done
     if (Object.keys(countryList).length === 1) {
         delete countryList[Object.keys(countryList)[index1]];
         index1 = randomIndex();
         generateCountry(index1);
         runGame();
     } else {
-        // if not last questsion, do the following
+        // if not last questsion:
         delete countryList[Object.keys(countryList)[index1]];
         index1 = randomIndex();
         questionNumber++;
