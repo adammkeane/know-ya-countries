@@ -157,7 +157,24 @@ function runGame() {
             event.preventDefault();
             location.reload();
         });
+        // run function to create table showing user their quiz answers
+        quizAnswers();
     }
+}
+// function to show user their quiz answers at the end of the quiz
+function quizAnswers() {
+    let quizAnswersTable = document.createElement('table');
+    quizAnswersTable.innerHTML = '<tr><th>Country<th/><th>Your Answer<th/><th>Correct Answer<th/></tr>';
+    for (let answer of answers) {
+        let answerHTML = document.createElement('tr')
+        if (!answer.userAnswer) {
+            answerHTML.innerHTML = `<td>${answer.country}</td><td>Skipped</td><td>${answer.correctAnswer}</td>`
+        } else {
+            answerHTML.innerHTML = `<td>${answer.country}</td><td>${answer.userAnswer}</td><td>${answer.correctAnswer}</td>`
+        }
+        quizAnswersTable.append(answerHTML);
+    }
+    document.body.append(quizAnswersTable)
 }
 
 //function to check users answers
@@ -213,7 +230,7 @@ function next(event) {
     // save answer data to answers array as an object element
     answers.push({
         country: countryQ.innerHTML,
-        answer: ansInput.value,
+        userAnswer: ansInput.value,
         correctAnswer: Object.values(countryList)[index1],
         userCorrect: ansInput.value === Object.values(countryList)[index1] || (ansInput.value === 'Jersulem' && Object.keys(countryList)[index1] === 'Palestine')
     });
