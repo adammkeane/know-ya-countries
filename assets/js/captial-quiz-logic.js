@@ -165,10 +165,11 @@ function runGame() {
 function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
     let headingHTML = document.createElement('tr');
-    headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
+    headingHTML.innerHTML = '<th class="px-3">Country</th><th class="px-3">Your Answer</th><th class="px-3">Correct Answer</th>';
     quizAnswersTable.append(headingHTML);
     for (let answer of answers) {
         let answerHTML = document.createElement('tr')
+        answerHTML.classList.add('p-2')
         if (!answer.userAnswer) {
             answerHTML.innerHTML = `<td>${answer.country}</td><td>Skipped</td><td>${answer.correctAnswer}</td>`
         } else {
@@ -176,7 +177,7 @@ function quizAnswers() {
         }
         quizAnswersTable.append(answerHTML);
     }
-    document.body.append(quizAnswersTable)
+    ansFeedback.append(quizAnswersTable)
 }
 
 //function to check users answers
