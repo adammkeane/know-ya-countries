@@ -165,7 +165,7 @@ function runGame() {
 function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
     let headingHTML = document.createElement('tr');
-    headingHTML.innerHTML = '<th class="px-3">Country</th><th class="px-3">Your Answer</th><th class="px-3">Correct Answer</th>';
+    headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
     quizAnswersTable.append(headingHTML);
     for (let answer of answers) {
         let answerHTML = document.createElement('tr')
@@ -177,7 +177,9 @@ function quizAnswers() {
         }
         quizAnswersTable.append(answerHTML);
     }
-    ansFeedback.append(quizAnswersTable)
+    // get the first p tag in the answer feedback section, ie the score, and append table after that.
+    let scoreP = ansFeedback.querySelector('p');
+    scoreP.after(quizAnswersTable)
 }
 
 //function to check users answers
