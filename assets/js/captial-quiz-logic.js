@@ -164,7 +164,7 @@ function runGame() {
 // function to show user their quiz answers at the end of the quiz
 function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
-    quizAnswersTable.classList.add('table', 'mt-3')
+    quizAnswersTable.classList.add('table', 'my-3')
     let headingHTML = document.createElement('tr');
     headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
     quizAnswersTable.append(headingHTML);
