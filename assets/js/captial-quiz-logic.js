@@ -165,7 +165,7 @@ function runGame() {
 // function to show user their quiz answers at the end of the quiz
 function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
-    quizAnswersTable.classList.add('my-3')
+    quizAnswersTable.classList.add('my-2')
     let headingHTML = document.createElement('tr');
     headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
     quizAnswersTable.append(headingHTML);
@@ -210,7 +210,7 @@ function checkAns(event) {
         nextButton.focus();
     } else if (ansInput.value !== Object.values(countryList)[index1]) {
         ansFeedback.style.border = '1px solid #212529';
-        ansFeedback.innerHTML = `<p>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
+        ansFeedback.innerHTML = `<p style="margin-bottom: 0";>Unlucky.</p><p>The correct answer was:<br><b>${Object.values(countryList)[index1]}</b></p>`;
         ansInput.style.backgroundColor = '#FF7575';
         ansFeedback.style.backgroundColor = '#FF7575';
         ansInput.style.color = '#212529';

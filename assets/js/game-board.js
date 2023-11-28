@@ -34,5 +34,5 @@ gameBoard.innerHTML = `<!-- Question and Answer fields, including autocomplete d
 </div>
 <!--Where answer feedback will appear  -->
 <div class="flex-column w-100 mb-5">
-    <div id="ans-feedback" class="w-100 p-3 flex-column"></div>
+    <div id="ans-feedback" class="w-100 px-3 flex-column"></div>
 </div>`;
