@@ -162,12 +162,12 @@ img {
 
 /* Feedback color styles */
 .correct-feedback,
-#ans-feedback .correct-feedback td {
+#ans-feedback .correct-feedback td:nth-child(2) {
     background-color: #44C167;
 }
 
 .incorrect-feedback,
-#ans-feedback .incorrect-feedback td {
+#ans-feedback .incorrect-feedback td:nth-child(2) {
     background-color: #FF7575;
 }
 

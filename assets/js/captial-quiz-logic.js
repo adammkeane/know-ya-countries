@@ -8,6 +8,8 @@ const scoreCounter = document.querySelector('#score');
 const questionsLeft = document.querySelector('#questions-left');
 const allAsiaCaps = document.querySelector('#all-asia-caps');
 const counters = document.querySelector('#counters');
+const questionTitle = document.querySelector('#question-title');
+const answerTitle = document.querySelector('#answer-title');
 
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
@@ -21,6 +23,10 @@ function randomIndex() {
 }
 // create variable with the return value of randonIndex function
 let index1 = randomIndex();
+
+// Add custom question and answer titles
+questionTitle.innerText = customQ;
+answerTitle.innerText = customA;
 
 //function to randomly generate a country,
 // put focus on the dropdown button for all capitals, and
@@ -167,7 +173,7 @@ function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
     quizAnswersTable.classList.add('my-2')
     let headingHTML = document.createElement('tr');
-    headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
+    headingHTML.innerHTML = `<th>${customQ}</th><th>Your Answer</th><th>Correct Answer</th>`;
     quizAnswersTable.append(headingHTML);
     for (let answer of answers) {
         let answerHTML = document.createElement('tr');
