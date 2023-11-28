@@ -73,19 +73,6 @@ input[type="text"] {
     font-size: 16px;
 }
 
-/* input[type=submit] {
-  border-radius: 5px;
-  padding: 0.3rem;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  width: 50vw;
-  margin: 0.5rem;
-} */
-
-/* .submit-buttons {
-  display: flex;
-  flex-direction: column;
-} */
 
 .options-list {
     width: 100%;
@@ -162,80 +149,6 @@ h4 {
     margin-bottom: 0.2rem;
 }
 
-/* footer styling */
-footer {
-    max-width: 60%;
-    margin: 0.5rem auto;
-}
-
-footer li {
-    list-style: none;
-}
-
-footer a {
-    color: #212529;
-    margin: 0 0.5rem;
-    padding: 0.2rem;
-    font-size: 1.2rem;
-    border: 1px solid #ffffff;
-}
-
-footer a:hover {
-    border: 1px solid #212529;
-    color: #ffffff;
-    background-color: #212529;
-    border-radius: 5px
-}
-
-footer ul {
-    display: flex;
-    justify-content: center;
-}
-
-/* Media Queries */
-/* @media (min-width: 600px) {
-
-  #score,
-  #questions-left {
-    font-size: 1rem;
-  }
-
-  input[type=submit] {
-    width: 30vw;
-  }
-
-  input[type="text"],
-  .game-box {
-    width: 40vw;
-  }
-
-  .flex-row {
-    width: 30vw;
-  }
-
-  #ans-feedback {
-    width: 30vw;
-  }
-} */
-
-/* @media (min-width: 1000px) {
-  input[type=submit] {
-    width: 20vw;
-  }
-
-  input[type="text"],
-  .game-box {
-    width: 30vw;
-  }
-
-  .flex-row {
-    width: 20vw;
-  }
-
-  #ans-feedback {
-    width: 20vw;
-  }
-} */
 
 img {
     filter: invert(11%) sepia(14%) saturate(523%) hue-rotate(168deg) brightness(99%) contrast(91%);
