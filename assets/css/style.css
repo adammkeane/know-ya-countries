@@ -250,13 +250,28 @@ img {
 
 
 /* answer feedback table for end of quiz */
-#ans-feedback table,
-#ans-feedback th,
-#ans-feedback td {
-    padding: .25rem .75rem;
+#ans-feedback table {
+    display: block;
+    align-items: start;
+    overflow-x: auto;
+    padding: 0;
     border-collapse: separate;
     border-spacing: 0;
 }
+
+#ans-feedback th,
+#ans-feedback td {
+    padding: .25rem .75rem;
+}
+
+#ans-feedback table,
+#ans-feedback th,
+#ans-feedback td {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
 
 #ans-feedback th,
 #ans-feedback td {
