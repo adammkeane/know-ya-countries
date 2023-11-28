@@ -12,6 +12,7 @@ const counters = document.querySelector('#counters');
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
 let score = 0;
+// empty array to store user's answers as they play the quiz
 let answers = [];
 
 //creates random numbers between 0 and number of country key indexes
@@ -169,18 +170,22 @@ function quizAnswers() {
     headingHTML.innerHTML = '<th>Country</th><th>Your Answer</th><th>Correct Answer</th>';
     quizAnswersTable.append(headingHTML);
     for (let answer of answers) {
-        let answerHTML = document.createElement('tr')
-        answerHTML.classList.add('p-2')
+        let answerHTML = document.createElement('tr');
+        answerHTML.classList.add('p-2');
         if (!answer.userAnswer) {
-            answerHTML.innerHTML = `<td>${answer.country}</td><td>Skipped</td><td>${answer.correctAnswer}</td>`
+            answerHTML.innerHTML = `<td>${answer.country}</td><td>Skipped</td><td>${answer.correctAnswer}</td>`;
+        } else if (answer.userCorrect) {
+            answerHTML.innerHTML = `<td>${answer.country}</td><td>${answer.userAnswer}</td><td>${answer.correctAnswer}</td>`;
+            answerHTML.classList.add('correct-feedback');
         } else {
-            answerHTML.innerHTML = `<td>${answer.country}</td><td>${answer.userAnswer}</td><td>${answer.correctAnswer}</td>`
+            answerHTML.innerHTML = `<td>${answer.country}</td><td>${answer.userAnswer}</td><td>${answer.correctAnswer}</td>`;
+            answerHTML.classList.add('incorrect-feedback');
         }
         quizAnswersTable.append(answerHTML);
     }
     // get the first p tag in the answer feedback section, ie the score, and append table after that.
     let scoreP = ansFeedback.querySelector('p');
-    scoreP.after(quizAnswersTable)
+    scoreP.after(quizAnswersTable);
 }
 
 //function to check users answers

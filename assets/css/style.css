@@ -114,7 +114,6 @@ input[type="text"] {
     padding: 0.7rem;
     outline: none;
     border-radius: 5px;
-    text-align: center;
 }
 
 #all-asia-caps {
@@ -161,6 +160,14 @@ img {
     max-height: 30vh;
 }
 
+/* Feedback color styles */
+.correct-feedback {
+    background-color: #44C167;
+}
+
+.incorrect-feedback {
+    background-color: #FF7575;
+}
 
 /* answer feedback table for end of quiz */
 #ans-feedback table {
@@ -168,8 +175,6 @@ img {
     align-items: start;
     overflow-x: auto;
     padding: 0;
-    border-collapse: separate;
-    border-spacing: 0;
 }
 
 #ans-feedback th,
