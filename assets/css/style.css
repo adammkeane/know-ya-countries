@@ -55,6 +55,7 @@ form,
 
 #welcome span {
     font-size: 13px;
+    font-style: italic;
 }
 
 input[type="text"],
