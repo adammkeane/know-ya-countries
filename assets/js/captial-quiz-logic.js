@@ -147,7 +147,7 @@ function runGame() {
         countryQ.style.backgroundColor = '#FF85E0';
         ansFeedback.style.border = '1px solid #212529';
         ansFeedback.innerHTML = `<p>Score: <b>${score}/${totalQs}</b>
-                                    </p><p>Thanks for playing :)</p>`;
+                                    </p><p id="end-message" class="mt-0">Thanks for playing :)</p>`;
         ansFeedback.style.backgroundColor = '#FF85E0';
         // add replay button at end of the quiz
         let replayButton = document.createElement('input');
@@ -171,7 +171,7 @@ function runGame() {
 // function to show user their quiz answers at the end of the quiz
 function quizAnswers() {
     let quizAnswersTable = document.createElement('table');
-    quizAnswersTable.classList.add('my-2')
+    quizAnswersTable.classList.add('my-3')
     let headingHTML = document.createElement('tr');
     headingHTML.innerHTML = `<th>${customQ}</th><th>Your Answer</th><th>Correct Answer</th>`;
     quizAnswersTable.append(headingHTML);
@@ -190,8 +190,8 @@ function quizAnswers() {
         quizAnswersTable.append(answerHTML);
     }
     // get the first p tag in the answer feedback section, ie the score, and append table after that.
-    let scoreP = ansFeedback.querySelector('p');
-    scoreP.after(quizAnswersTable);
+    let endMessage = ansFeedback.querySelector('#end-message');
+    endMessage.after(quizAnswersTable);
 }
 
 //function to check users answers
