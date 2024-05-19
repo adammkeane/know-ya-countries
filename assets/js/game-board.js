@@ -1,7 +1,7 @@
 const gameBoard = document.querySelector('#game-board');
 
 gameBoard.innerHTML = `<!-- Question and Answer fields, including autocomplete dropdown menu -->
-<div class="flex-column row w-100">
+<div class="row w-100">
     <div>
         <p><b id="question-title">Question</b></p>
     </div>
@@ -33,7 +33,7 @@ gameBoard.innerHTML = `<!-- Question and Answer fields, including autocomplete d
     <div id="questions-left" class="mx-2"></div>
 </div>
 <!--Where answer feedback will appear  -->
-<div class="flex-column w-100 mb-5">
-    <div id="ans-feedback" class="w-100 px-3 flex-column"></div>
-    <div id="ans-table" class="w-100 px-3 mt-4 flex-column"></div>
+<div class="w-100 mb-5">
+    <div id="ans-feedback" class="w-100 px-3"></div>
+    <div id="ans-table" class="w-100 mt-5"></div>
 </div>`;
