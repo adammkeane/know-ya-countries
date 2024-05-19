@@ -10,6 +10,7 @@ const allAsiaCaps = document.querySelector('#all-asia-caps');
 const counters = document.querySelector('#counters');
 const questionTitle = document.querySelector('#question-title');
 const answerTitle = document.querySelector('#answer-title');
+const ansTable = document.querySelector('#ans-table');
 
 let capitalArray = [...new Set(Object.values(countryList))];
 let questionNumber = 1;
@@ -190,8 +191,7 @@ function quizAnswers() {
         quizAnswersTable.append(answerHTML);
     }
     // get the first p tag in the answer feedback section, ie the score, and append table after that.
-    let endMessage = ansFeedback.querySelector('#end-message');
-    endMessage.after(quizAnswersTable);
+    ansTable.append(quizAnswersTable);
 }
 
 //function to check users answers
