@@ -162,11 +162,10 @@ img {
 
 /* answer feedback table for end of quiz */
 #ans-table table {
-    display: block;
-    /* align-items: start; */
     overflow-x: auto;
     padding: 0;
     max-width: 100%;
+    width: 100%;
 }
 
 #ans-table th,
@@ -213,12 +212,10 @@ img {
     border-radius: 0 0 5px 0;
 }
 
-.correct-feedback,
 #ans-table .correct-feedback td:nth-child(2) {
     background-color: #44C167;
 }
 
-.incorrect-feedback,
 #ans-table .incorrect-feedback td:nth-child(2) {
     background-color: #FF7575;
 }
