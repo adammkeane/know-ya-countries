@@ -23,7 +23,7 @@ gameBoard.innerHTML = `<!-- Question and Answer fields, including autocomplete d
         <div class="end-quiz-btns flex-row">
             <input type="submit" id="submit-button" class="btn btn-outline-dark p-3 mx-2"
                 value="Check Answer">
-            <input type="submit" id="next-button" class="btn btn-outline-dark p-3 mx-2" value="Next">
+            <input type="submit" id="next-button" class="btn btn-outline-dark p-3 mx-2" value="Skip">
         </div>
     </form>
 </div>

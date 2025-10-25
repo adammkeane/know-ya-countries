@@ -1,6 +1,6 @@
 // reference
 const ansInput = document.querySelector('#answer');
-const ansSubmit = document.querySelector('#submit-button');
+const ansSubmitButton = document.querySelector('#submit-button');
 const countryQ = document.querySelector('#country');
 const ansFeedback = document.querySelector('#ans-feedback');
 const nextButton = document.querySelector('#next-button');
@@ -41,7 +41,7 @@ function generateCountry(num) {
 // One page load, runs the game and listens for button clicks
 document.addEventListener('DOMContentLoaded', function () {
     //check users answer
-    ansSubmit.addEventListener('click', checkAns);
+    ansSubmitButton.addEventListener('click', checkAns);
     nextButton.addEventListener('click', next);
     generateCountry(index1);
     runGame();
@@ -55,7 +55,8 @@ function dropdownList(e) {
     ansFeedback.innerHTML = '';
     ansFeedback.style.border = 'none';
     ansFeedback.style.backgroundColor = '';
-    ansSubmit.setAttribute('disabled', 'true');
+    ansSubmitButton.setAttribute('disabled', 'true');
+    ansSubmitButton.style.display = 'none';
     // if the dropdown list is open
     if ((document.querySelectorAll('.options-list-items').length) > 0) {
         removeElements();
@@ -83,6 +84,8 @@ function dropdownList(e) {
             const capital = item.innerText;
             item.addEventListener('click', () => {
                 displayNames(capital);
+                checkAns();
+                nextButton.value = 'Next';
             })
         }
     }
@@ -104,9 +107,10 @@ ansInput.addEventListener('keypress', function (e) {
 function displayNames(value) {
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
     ansInput.value = value;
-    ansSubmit.removeAttribute('disabled');
+    ansSubmitButton.removeAttribute('disabled');
+    ansSubmitButton.style.display = 'block';
     nextButton.setAttribute('disabled', 'true');
-    ansSubmit.focus();
+    ansSubmitButton.focus();
     removeElements();
 }
 
@@ -121,7 +125,8 @@ function removeElements() {
 
 /** Function that calls the generate country function and sets out when should happen at the end of the quiz */
 function runGame() {
-    ansSubmit.setAttribute('disabled', 'true');
+    ansSubmitButton.setAttribute('disabled', 'true');
+    ansSubmitButton.style.display = 'none';
     let totalQs = capitalArray.length;
     if (capitalArray.includes('Jerusalem')) {
         totalQs++;
@@ -138,7 +143,7 @@ function runGame() {
             countryQ.innerHTML = end2;
         }
         ansInput.setAttribute('disabled', 'true');
-        ansSubmit.style.display = 'none';
+        ansSubmitButton.style.display = 'none';
         nextButton.style.display = 'none';
         counters.style.display = 'none';
         allAsiaCaps.setAttribute('disabled', 'true');
@@ -197,7 +202,7 @@ function quizAnswers() {
 //function to check users answers
 function checkAns(event) {
     // remove default submit button functionality
-    event.preventDefault();
+    // event.preventDefault();
     ansFeedback.style.backgroundColor = '';
     //check if answer correct.
     if (ansInput.value === Object.values(countryList)[index1]) {
@@ -206,7 +211,8 @@ function checkAns(event) {
         ansInput.style.backgroundColor = '#44C167';
         ansFeedback.style.backgroundColor = '#44C167';
         ansInput.style.color = '#212529';
-        ansSubmit.setAttribute('disabled', 'true');
+        ansSubmitButton.setAttribute('disabled', 'true');
+        ansSubmitButton.style.display = 'none';
         ansInput.setAttribute('disabled', 'true');
         allAsiaCaps.setAttribute('disabled', 'true');
         allAsiaCaps.style.cursor = 'default';
@@ -221,7 +227,8 @@ function checkAns(event) {
         ansFeedback.style.backgroundColor = '#FF7575';
         ansInput.style.color = '#212529';
         nextButton.focus();
-        ansSubmit.setAttribute('disabled', 'true');
+        ansSubmitButton.setAttribute('disabled', 'true');
+        ansSubmitButton.style.display = 'none';
         ansInput.setAttribute('disabled', 'true');
         allAsiaCaps.setAttribute('disabled', 'true');
         allAsiaCaps.style.cursor = 'default';
@@ -244,6 +251,7 @@ function next(event) {
     ansFeedback.style.backgroundColor = '';
     ansFeedback.innerHTML = '';
     allAsiaCaps.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+    nextButton.value = 'Skip';
     // save answer data to answers array as an object element
     answers.push({
         country: countryQ.innerHTML,
@@ -267,7 +275,8 @@ function next(event) {
         index1 = randomIndex();
         questionNumber++;
         ansInput.style.backgroundColor = '';
-        ansSubmit.removeAttribute('disabled');
+        ansSubmitButton.removeAttribute('disabled');
+        ansSubmitButton.style.display = 'block';
         ansInput.removeAttribute('disabled');
         allAsiaCaps.removeAttribute('disabled');
         allAsiaCaps.style.cursor = 'pointer';
